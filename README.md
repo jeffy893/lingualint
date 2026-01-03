@@ -1,4 +1,4 @@
-# [LinguaLint](https://www.lingualint.com) : Meanest, Cleanest, NLPness!
+# [LinguaLint](https://www.lingualint.com) : Meanest, Cleanest NLPness!
 
 ## Table of Contents
 
