@@ -11,7 +11,7 @@
 - ✅ **Open source SaaS**: Run LinguaLint as a web service if you share your source code
 - ❌ **Proprietary SaaS**: Cannot run as a closed-source web service without commercial license
 
-**Need proprietary licensing?** Contact licensing@lingualint.com
+**Need proprietary licensing?** Contact jefferson@richards.plus
 
 ### Q: What does "network service" mean in AGPL?
 
@@ -225,7 +225,7 @@ for filename in file_list:
 - **Documentation**: Check `/docs/` directory
 - **Examples**: See `/examples/` directory
 - **Code**: Read the source code (it's open!)
-- **Email**: hello@lingualint.com for general questions
+- **Email**: jefferson@richards.plus for general questions
 
 ### Q: Do you offer commercial support?
 
@@ -236,7 +236,7 @@ for filename in file_list:
 - **Custom development** services
 - **Training and consulting**
 
-Contact **support@lingualint.com** for enterprise options.
+Contact **jefferson@richards.plus** for enterprise options.
 
 ### Q: How do I contribute to LinguaLint?
 
@@ -259,7 +259,7 @@ Contact **support@lingualint.com** for enterprise options.
 
 **Still have questions?** 
 
-- 📧 **Email**: hello@lingualint.com
+- 📧 **Email**: jefferson@richards.plus
 - 💬 **Discussions**: [GitHub Discussions](https://github.com/jeffy893/lingualint/discussions)
 - 🐛 **Issues**: [GitHub Issues](https://github.com/jeffy893/lingualint/issues)
 - 🌐 **Website**: [lingualint.com](https://lingualint.com)

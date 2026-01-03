@@ -88,7 +88,7 @@ By contributing to LinguaLint, you agree that:
 Want to contribute but not sure how?
 
 - 💬 **GitHub Discussions**: Ask questions and get guidance
-- 📧 **Email**: hello@lingualint.com
+- 📧 **Email**: jefferson@richards.plus
 - 🐛 **Issues**: Browse open issues for contribution opportunities
 
 ---

@@ -19,7 +19,7 @@ The LinguaLint team takes security seriously. We appreciate your efforts to resp
 
 Instead, please report security vulnerabilities by email to:
 
-**security@lingualint.com**
+**jefferson@richards.plus**
 
 ### What to Include
 
@@ -155,8 +155,8 @@ source venv/bin/activate
 
 ### Contact Information
 
-- **Security Email**: security@lingualint.com
-- **General Contact**: hello@lingualint.com
+- **Security Email**: jefferson@richards.plus
+- **General Contact**: jefferson@richards.plus
 - **Website**: https://lingualint.com
 
 ### PGP Key
@@ -165,7 +165,7 @@ For sensitive communications, you may encrypt your message using our PGP key:
 
 ```
 -----BEGIN PGP PUBLIC KEY BLOCK-----
-[PGP key will be provided upon request to security@lingualint.com]
+[PGP key will be provided upon request to jefferson@richards.plus]
 -----END PGP PUBLIC KEY BLOCK-----
 ```
 

@@ -275,7 +275,7 @@ python3.10 -m http.server 8000 -d docs/
 
 - **GitHub Issues**: For bugs and feature requests
 - **Discussions**: For questions and general discussion
-- **Email**: security@lingualint.com for security issues
+- **Email**: jefferson@richards.plus for security issues
 
 ### Communication Guidelines
 
