@@ -1,0 +1,595 @@
+{
+  "_index": "lingualint_event",
+  "_id": "7dbe9bfa5aeaee11b48c",
+  "_score": 1.0,
+  "_source": {
+    "@timestamp": "2026-01-03T08:22:03.555971",
+    "tag": "",
+    "email": "",
+    "identity": {
+      "timestamp": "2026-01-03T08:22:03.555977",
+      "tag": "",
+      "email": "",
+      "first_sentence": "As the new year begins, political analysts are forecasting a turbulent 2026, with looming local government elections expected to accelerate the fragmentation of South Africa's political scene."
+    },
+    "sentences": [
+      {
+        "sentence": "As the new year begins, political analysts are forecasting a turbulent 2026, with looming local government elections expected to accelerate the fragmentation of South Africa's political scene.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "The potential collapse of the long-standing Tripartite Alliance and instability within major parties are seen as central to the unfolding drama.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "In a recent television interview, Dr. Ntsikelelo Breakfast, acting director of the Centre for Security, Peace and Conflict Resolution at Nelson Mandela University, provided a stark assessment.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "He identified the South African Communist Party's (SACP) declared intention to contest elections independently as the most critical threat to the African National Congress (ANC).",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.04,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "sentence": "'The biggest loser unfortunately is going to be the ANC,' stated Dr. Breakfast.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "He explained that the SACP would be competing for the same working-class vote base that has traditionally supported the ANC.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "'That is going to split the votes,' he added.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "This move follows a recent ANC National General Council decision to exclude SACP members from its internal strategic campaign meetings.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "Dr. Breakfast suggested this has pushed the communist party to a 'point of no return,' signalling a likely end to the Tripartite Alliance.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "'To me it means that the tripartite alliance is over,' he said.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "The analyst's overview of the year ahead painted a picture of widespread coalition governments, with no single party expected to secure outright victories in key metros like Johannesburg, Nelson Mandela Bay, and eThekwini.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "He predicted only the Democratic Alliance (DA) would likely retain clear control in Cape Town.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "However, Dr. Breakfast also highlighted severe internal challenges for the DA, which faces threats from both the growing Patriotic Alliance and very public internal strife.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "'You have leaders now who don't function as a unified force\u2026 crossing swords in public,' he noted, adding that this dents the party's image of stability and clean governance.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "The local elections, he argued, are about more than service delivery; they are a battleground for economic development and will be a referendum on performance.",
+        "warm_vector": [
+          0.0,
+          0.04,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "He drew a direct link between low voter turnout and the slow pace of service delivery in many municipalities.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "The outcome of the polls could also destabilise national leadership.",
+        "warm_vector": [
+          0.0,
+          0.1,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.1,
+          0.0
+        ]
+      },
+      {
+        "sentence": "Dr. Breakfast stated that poor ANC results would increase the 'fragility' of President Cyril Ramaphosa's position, as discontent simmers within the party over its dramatic drop in national support from 57% to 40% in the 2024 elections.",
+        "warm_vector": [
+          0.030303030303030304,
+          0.0,
+          1.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "Other factors set to define 2026 include the DA's upcoming leadership conference, where the incumbent faces a contest, and the anticipated findings of the Mokgapa Commission, whose preliminary reports have yet to be made public.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "Dr. Breakfast concluded that the political environment remains highly volatile, with the old order of one-party dominance firmly in the past.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "The 2026 local government elections are now poised to be a decisive test for the survival of established political structures and alliances.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "subjects": [
+      "Cyril Ramaphosa's",
+      "Security",
+      "Town",
+      "Conflict",
+      "Mandela",
+      "African",
+      "National",
+      "The biggest loser",
+      "Johannesburg",
+      "Tripartite",
+      "Resolution",
+      "DA",
+      "the communist party",
+      "He",
+      "Ntsikelelo",
+      "Alliance",
+      "the African National Congress",
+      "The local elections",
+      "President",
+      "the South African Communist Party's",
+      "Africa",
+      "Dr.",
+      "Nelson Mandela University",
+      "the Democratic Alliance (DA",
+      "Cape Town",
+      "The outcome",
+      "The potential collapse",
+      "Mokgapa",
+      "Communist",
+      "ANC National General Council",
+      "Ntsikelelo Breakfast",
+      "Commission",
+      "Nelson Mandela Bay",
+      "Tripartite Alliance",
+      "Centre",
+      "Breakfast",
+      "the Centre for Security",
+      "Nelson",
+      "Dr. Breakfast",
+      "the Tripartite Alliance",
+      "This move",
+      "SACP members",
+      "the Mokgapa Commission",
+      "That",
+      "Cyril",
+      "Democratic",
+      "University",
+      "General",
+      "Council",
+      "Bay",
+      "eThekwini",
+      "South",
+      "SACP",
+      "Party",
+      "The analyst's overview",
+      "Other factors",
+      "Congress",
+      "You",
+      "Peace",
+      "South Africa's",
+      "Ramaphosa",
+      "Cape",
+      "Dr. Ntsikelelo Breakfast",
+      "Patriotic",
+      "ANC"
+    ],
+    "phen": [
+      "Cyril Ramaphosa's",
+      "Town",
+      "a contest",
+      "the SACP",
+      "leadership conference the incumbent faces",
+      "the party's image",
+      "Tripartite",
+      "Resolution",
+      "government elections are poised to be",
+      "national support",
+      "the African National Congress",
+      "national leadership",
+      "Patriotic Alliance and public internal strife",
+      "whose preliminary reports yet to be",
+      "the South African Communist Party's",
+      "Dr.",
+      "the past",
+      "with looming local government",
+      "with looming local government elections",
+      "a referendum",
+      "one-party dominance",
+      "Communist",
+      "the South African Communist Party's (SACP",
+      "its internal strategic campaign meetings",
+      "a decisive test",
+      "its dramatic drop",
+      "Centre",
+      "Nelson",
+      "the Centre for Security",
+      "no single party",
+      "SACP members",
+      "now poised to a decisive test",
+      "is going to the ANC",
+      "Cyril",
+      "University",
+      "service delivery",
+      "the Centre",
+      "old order of party dominance",
+      "the slow pace",
+      "The analyst's overview",
+      "Congress",
+      "Cape",
+      "the fragmentation",
+      "outright victories",
+      "Mandela",
+      "African",
+      "The biggest loser",
+      "Johannesburg",
+      "move follows a",
+      "leaders now who n't function as",
+      "Ntsikelelo",
+      "severe internal challenges",
+      "the DA's upcoming leadership conference",
+      "no return",
+      "Africa",
+      "Nelson Mandela University",
+      "Cape Town",
+      "development and will a referendum on",
+      "factors set to",
+      "Mokgapa",
+      "adding that dents the party",
+      "whose preliminary reports",
+      "expected to accelerate fragmentation",
+      "Dr. Breakfast",
+      "the Tripartite Alliance",
+      "government elections expected to accelerate",
+      "the Mokgapa Commission",
+      "That",
+      "only the Democratic Alliance",
+      "Council",
+      "forecasting turbulent 2026",
+      "economic development",
+      "Bay",
+      "eThekwini",
+      "South",
+      "a recent ANC National General Council decision",
+      "a likely end",
+      "a recent television interview",
+      "the same working-class vote base",
+      "the new year",
+      "Other factors",
+      "You have leaders who do n't",
+      "Ramaphosa",
+      "local government elections",
+      "new year begins political",
+      "Patriotic",
+      "major parties",
+      "a unified force",
+      "the votes",
+      "Security",
+      "a stark assessment",
+      "Conflict",
+      "the communist party",
+      "the most critical threat",
+      "the tripartite alliance",
+      "Alliance",
+      "a 'point",
+      "the unfolding drama",
+      "the Democratic Alliance (DA",
+      "the SACP would competing for the",
+      "be competing for same working",
+      "begins political analysts are",
+      "key metros",
+      "analysts are forecasting turbulent",
+      "the polls",
+      "the incumbent",
+      "Commission",
+      "the political environment",
+      "Tripartite Alliance",
+      "many municipalities",
+      "Breakfast",
+      "General",
+      "in key metros Johannesburg Nelson",
+      "57% to 40%",
+      "established political structures",
+      "low voter turnout",
+      "have leaders now",
+      "You",
+      "a direct link",
+      "the party",
+      "the ANC",
+      "the year",
+      "Dr. Ntsikelelo Breakfast",
+      "widespread coalition governments",
+      "clear control",
+      "both the growing Patriotic Alliance",
+      "the DA",
+      "National",
+      "service delivery in municipalities",
+      "very public internal strife",
+      "the survival",
+      "The local elections",
+      "President",
+      "the 'fragility",
+      "the anticipated findings",
+      "The outcome",
+      "a battleground",
+      "The potential collapse",
+      "ANC National General Council",
+      "Ntsikelelo Breakfast",
+      "the old order",
+      "Nelson Mandela Bay",
+      "political analysts",
+      "poor ANC results",
+      "the long-standing Tripartite Alliance",
+      "clean governance",
+      "the 2024 elections",
+      "This follows a recent",
+      "This move",
+      "Dr. Breakfast suggested has pushed the",
+      "Democratic",
+      "SACP",
+      "Party",
+      "are about than service delivery",
+      "acting director",
+      "a picture",
+      "Peace",
+      "South Africa's",
+      "You leaders now who",
+      "have yet to made public",
+      "ANC"
+    ],
+    "wiki_blues": [
+      "Cyril Ramaphosa's",
+      "Town",
+      "a contest",
+      "the SACP",
+      "the party's image",
+      "Tripartite",
+      "Resolution",
+      "DA",
+      "government elections are poised to be",
+      "He",
+      "national support",
+      "the African National Congress",
+      "national leadership",
+      "Patriotic Alliance and public internal strife",
+      "whose preliminary reports yet to be",
+      "the South African Communist Party's",
+      "Dr.",
+      "the past",
+      "with looming local government",
+      "with looming local government elections"
+    ],
+    "wiki": [
+      {
+        "wiki_search_content": "Cyril Ramaphosa's",
+        "wiki_url": "https://en.wikipedia.org/wiki/Cyril_Ramaphosa",
+        "wiki_summary": "Matamela Cyril Ramaphosa ( RAM-\u0259-FAW-s\u0259 or   RAH-m\u0259-POH-s\u0259; (born 17 November 1952) is a South African businessman and politician serving as the president of South Africa since 2018. A former anti-apartheid activist and trade union leader, Ramaphosa is also the president of the African National Congress (ANC)."
+      },
+      {
+        "wiki_search_content": "Town",
+        "wiki_url": "https://en.wikipedia.org/wiki/Town",
+        "wiki_summary": ""
+      },
+      {
+        "wiki_search_content": "a contest",
+        "wiki_url": "https://en.wikipedia.org/wiki/a_contest",
+        "wiki_summary": ""
+      },
+      {
+        "wiki_search_content": "the SACP",
+        "wiki_url": "https://en.wikipedia.org/wiki/South_African_Communist_Party",
+        "wiki_summary": "The South African Communist Party (SACP) is a communist party in South Africa. It was founded on 12 February 1921 as the Communist Party of South Africa (CPSA), and tactically dissolved itself in 1950 in the face of being declared illegal by the governing National Party under the Suppression of Communism Act, 1950."
+      },
+      {
+        "wiki_search_content": "the party's image",
+        "wiki_url": "https://en.wikipedia.org/wiki/the_party's_image",
+        "wiki_summary": ""
+      },
+      {
+        "wiki_search_content": "Tripartite",
+        "wiki_url": "https://en.wikipedia.org/wiki/Tripartite",
+        "wiki_summary": ""
+      },
+      {
+        "wiki_search_content": "Resolution",
+        "wiki_url": "https://en.wikipedia.org/wiki/Resolution",
+        "wiki_summary": ""
+      },
+      {
+        "wiki_search_content": "DA",
+        "wiki_url": "https://en.wikipedia.org/wiki/DA",
+        "wiki_summary": ""
+      },
+      {
+        "wiki_search_content": "government elections are poised to be",
+        "wiki_url": "https://en.wikipedia.org/wiki/2024_Indian_general_election",
+        "wiki_summary": "General elections were held in India in four phases between 20 April and 10 May 2004. Over 670 million people were eligible to vote, electing 543 members of the 14th Lok Sabha."
+      },
+      {
+        "wiki_search_content": "He",
+        "wiki_url": "https://en.wikipedia.org/wiki/He",
+        "wiki_summary": "The is a grammatical article in English, denoting nouns that are already or about to be mentioned, under discussion, implied or otherwise presumed familiar to listeners, readers, or speakers. It is the definite article in English."
+      }
+    ]
+  }
+}

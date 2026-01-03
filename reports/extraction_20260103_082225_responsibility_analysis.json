@@ -1,0 +1,1177 @@
+{
+  "timestamp": "2026-01-03T08:22:25.803100",
+  "total_entities": 65,
+  "total_events": 21,
+  "entity_assessments": [
+    {
+      "entity": "Cyril Ramaphosa's",
+      "mentions": 1,
+      "intention_score": 21.212,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 212.121,
+      "risk_level": "Very Low",
+      "avg_warm_vector": [
+        0.03,
+        0.0,
+        1.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "President",
+      "mentions": 1,
+      "intention_score": 21.212,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 212.121,
+      "risk_level": "Very Low",
+      "avg_warm_vector": [
+        0.03,
+        0.0,
+        1.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Cyril",
+      "mentions": 1,
+      "intention_score": 21.212,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 212.121,
+      "risk_level": "Very Low",
+      "avg_warm_vector": [
+        0.03,
+        0.0,
+        1.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Ramaphosa",
+      "mentions": 1,
+      "intention_score": 21.212,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 212.121,
+      "risk_level": "Very Low",
+      "avg_warm_vector": [
+        0.03,
+        0.0,
+        1.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Dr. Breakfast",
+      "mentions": 5,
+      "intention_score": 4.242,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 42.424,
+      "risk_level": "Very Low",
+      "avg_warm_vector": [
+        0.006,
+        0.0,
+        0.2
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Dr.",
+      "mentions": 6,
+      "intention_score": 3.535,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 35.354,
+      "risk_level": "Very Low",
+      "avg_warm_vector": [
+        0.005,
+        0.0,
+        0.167
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Breakfast",
+      "mentions": 6,
+      "intention_score": 3.535,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 35.354,
+      "risk_level": "Very Low",
+      "avg_warm_vector": [
+        0.005,
+        0.0,
+        0.167
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "That",
+      "mentions": 6,
+      "intention_score": 3.535,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 35.354,
+      "risk_level": "Very Low",
+      "avg_warm_vector": [
+        0.005,
+        0.0,
+        0.167
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "The local elections",
+      "mentions": 1,
+      "intention_score": 1.6,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 16.0,
+      "risk_level": "Very Low",
+      "avg_warm_vector": [
+        0.0,
+        0.04,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "The outcome",
+      "mentions": 1,
+      "intention_score": 4.0,
+      "negligence_score": 3.0,
+      "responsibility_ratio": 1.333,
+      "risk_level": "High",
+      "avg_warm_vector": [
+        0.0,
+        0.1,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.1,
+        0.0
+      ]
+    },
+    {
+      "entity": "He",
+      "mentions": 20,
+      "intention_score": 1.341,
+      "negligence_score": 1.25,
+      "responsibility_ratio": 1.072,
+      "risk_level": "High",
+      "avg_warm_vector": [
+        0.002,
+        0.007,
+        0.05
+      ],
+      "avg_cold_vector": [
+        0.002,
+        0.005,
+        0.05
+      ]
+    },
+    {
+      "entity": "ANC",
+      "mentions": 14,
+      "intention_score": 1.629,
+      "negligence_score": 1.571,
+      "responsibility_ratio": 1.037,
+      "risk_level": "High",
+      "avg_warm_vector": [
+        0.002,
+        0.003,
+        0.071
+      ],
+      "avg_cold_vector": [
+        0.003,
+        0.0,
+        0.071
+      ]
+    },
+    {
+      "entity": "National",
+      "mentions": 4,
+      "intention_score": 6.303,
+      "negligence_score": 6.25,
+      "responsibility_ratio": 1.008,
+      "risk_level": "High",
+      "avg_warm_vector": [
+        0.008,
+        0.025,
+        0.25
+      ],
+      "avg_cold_vector": [
+        0.01,
+        0.025,
+        0.25
+      ]
+    },
+    {
+      "entity": "Security",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Town",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Conflict",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Mandela",
+      "mentions": 2,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "The biggest loser",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Johannesburg",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Tripartite",
+      "mentions": 3,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Resolution",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "DA",
+      "mentions": 3,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "the communist party",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Ntsikelelo",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Alliance",
+      "mentions": 6,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Nelson Mandela University",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "the Democratic Alliance (DA",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Cape Town",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "The potential collapse",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Mokgapa",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "ANC National General Council",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Ntsikelelo Breakfast",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Commission",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Nelson Mandela Bay",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Tripartite Alliance",
+      "mentions": 3,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Centre",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "the Centre for Security",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Nelson",
+      "mentions": 2,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "the Tripartite Alliance",
+      "mentions": 2,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "This move",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "SACP members",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "the Mokgapa Commission",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Democratic",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "University",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "General",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Council",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Bay",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "eThekwini",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "The analyst's overview",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Other factors",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "You",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Peace",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "South Africa's",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Cape",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Dr. Ntsikelelo Breakfast",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Patriotic",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Party",
+      "mentions": 6,
+      "intention_score": 3.535,
+      "negligence_score": 3.667,
+      "responsibility_ratio": 0.964,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.005,
+        0.0,
+        0.167
+      ],
+      "avg_cold_vector": [
+        0.007,
+        0.0,
+        0.167
+      ]
+    },
+    {
+      "entity": "SACP",
+      "mentions": 3,
+      "intention_score": 0.1,
+      "negligence_score": 7.333,
+      "responsibility_ratio": 0.014,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.013,
+        0.0,
+        0.333
+      ]
+    },
+    {
+      "entity": "Africa",
+      "mentions": 2,
+      "intention_score": 0.1,
+      "negligence_score": 11.0,
+      "responsibility_ratio": 0.009,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.02,
+        0.0,
+        0.5
+      ]
+    },
+    {
+      "entity": "Communist",
+      "mentions": 2,
+      "intention_score": 0.1,
+      "negligence_score": 11.0,
+      "responsibility_ratio": 0.009,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.02,
+        0.0,
+        0.5
+      ]
+    },
+    {
+      "entity": "South",
+      "mentions": 2,
+      "intention_score": 0.1,
+      "negligence_score": 11.0,
+      "responsibility_ratio": 0.009,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.02,
+        0.0,
+        0.5
+      ]
+    },
+    {
+      "entity": "African",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 22.0,
+      "responsibility_ratio": 0.005,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.04,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "entity": "the African National Congress",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 22.0,
+      "responsibility_ratio": 0.005,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.04,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "entity": "the South African Communist Party's",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 22.0,
+      "responsibility_ratio": 0.005,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.04,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "entity": "Congress",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 22.0,
+      "responsibility_ratio": 0.005,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.04,
+        0.0,
+        1.0
+      ]
+    }
+  ]
+}

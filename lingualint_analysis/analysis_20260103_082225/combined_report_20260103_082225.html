@@ -1,0 +1,895 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinguaLint Comprehensive Analysis Report - 20260103_082225</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0.75in;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            margin: 0;
+            padding: 0;
+            background: white;
+            color: #333;
+            font-size: 11pt;
+        }
+        
+        .cover-page {
+            text-align: center;
+            padding: 2in 0.5in;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin-bottom: 0.5in;
+            border-radius: 8px;
+            page-break-after: always;
+        }
+        
+        .cover-page h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5in;
+            font-weight: 300;
+        }
+        
+        .cover-page .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 0.5in;
+        }
+        
+        .cover-page .timestamp {
+            font-size: 1em;
+            opacity: 0.8;
+        }
+        
+        .section-divider {
+            page-break-before: always;
+            margin: 0.5in 0;
+            text-align: center;
+            padding: 0.5in;
+            background: #f8f9fa;
+            border-radius: 8px;
+            page-break-after: avoid;
+        }
+        
+        .section-divider h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 0;
+        }
+        
+        .report-section {
+            margin-bottom: 0.5in;
+            page-break-inside: avoid;
+        }
+        
+        .toc {
+            background: #f8f9fa;
+            padding: 0.5in;
+            border-radius: 8px;
+            margin: 0.5in 0;
+            page-break-after: always;
+        }
+        
+        .toc h2 {
+            color: #2c3e50;
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+        
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .toc li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .toc a {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 1em;
+        }
+        
+        /* Image sizing for PDF */
+        img {
+            max-width: 100% !important;
+            height: auto !important;
+            display: block;
+            margin: 0.25in auto;
+            page-break-inside: avoid;
+        }
+        
+        /* Visualization containers */
+        .visualization {
+            text-align: center;
+            margin: 0.25in 0;
+            padding: 0.25in;
+            background: #f8f9fa;
+            border-radius: 8px;
+            page-break-inside: avoid;
+        }
+        
+        .visualization img {
+            max-width: 95% !important;
+            max-height: 6in !important;
+            width: auto !important;
+            height: auto !important;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.25in 0;
+            font-size: 9pt;
+            page-break-inside: avoid;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 6px;
+            text-align: left;
+            word-wrap: break-word;
+        }
+        
+        th {
+            background: #f2f2f2;
+            font-weight: bold;
+        }
+        
+        /* Headers */
+        h1 { font-size: 1.8em; margin: 0.5in 0 0.25in 0; page-break-after: avoid; }
+        h2 { font-size: 1.5em; margin: 0.4in 0 0.2in 0; page-break-after: avoid; }
+        h3 { font-size: 1.3em; margin: 0.3in 0 0.15in 0; page-break-after: avoid; }
+        h4 { font-size: 1.1em; margin: 0.25in 0 0.1in 0; page-break-after: avoid; }
+        
+        /* Paragraphs */
+        p {
+            margin: 0.15in 0;
+            text-align: justify;
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin: 0.15in 0;
+            padding-left: 0.5in;
+        }
+        
+        li {
+            margin: 0.05in 0;
+        }
+        
+        /* Stats grid - make it PDF friendly */
+        .stats-grid {
+            display: block !important;
+            margin: 0.25in 0;
+        }
+        
+        .stat-card {
+            display: inline-block;
+            width: 30%;
+            margin: 0.1in 1%;
+            padding: 0.15in;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: center;
+            vertical-align: top;
+        }
+        
+        .stat-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.05in;
+        }
+        
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Risk badges */
+        .risk-badge {
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .risk-very-low { background: #2ecc71; color: white; }
+        .risk-low { background: #27ae60; color: white; }
+        .risk-moderate { background: #f39c12; color: white; }
+        .risk-high { background: #e74c3c; color: white; }
+        .risk-very-high { background: #c0392b; color: white; }
+        
+        /* Entity table - make it more compact for PDF */
+        .entity-table {
+            font-size: 8pt;
+            margin: 0.25in 0;
+        }
+        
+        .entity-table th {
+            background: #34495e;
+            color: white;
+            padding: 8px 4px;
+            font-size: 8pt;
+        }
+        
+        .entity-table td {
+            padding: 6px 4px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        /* Methodology section */
+        .methodology {
+            background: #ecf0f1;
+            padding: 0.25in;
+            border-radius: 8px;
+            margin: 0.25in 0;
+            page-break-inside: avoid;
+        }
+        
+        .methodology h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        .methodology ul {
+            margin: 0.1in 0;
+        }
+        
+        /* Force page breaks */
+        .page-break {
+            page-break-before: always;
+        }
+        
+        /* Avoid page breaks */
+        .no-break {
+            page-break-inside: avoid;
+        }
+        
+        /* Hide interactive elements in PDF */
+        script, .interactive-only {
+            display: none !important;
+        }
+        
+        /* Ensure content fits in margins */
+        .container {
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* D3.js visualization containers - make them PDF friendly */
+        #visualization, .d3-container {
+            display: none !important;
+        }
+        
+        /* Replace D3 with static message */
+        .d3-replacement {
+            text-align: center;
+            padding: 0.5in;
+            background: #f8f9fa;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            margin: 0.25in 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cover Page -->
+    <div class="cover-page">
+        <h1>LinguaLint</h1>
+        <div class="subtitle">Comprehensive Analysis Report</div>
+        <div class="timestamp">Generated: January 03, 2026 at 08:22 AM</div>
+        <div class="timestamp">Analysis ID: 20260103_082225</div>
+    </div>
+    
+    <!-- Table of Contents -->
+    <div class="toc">
+        <h2>📋 Table of Contents</h2>
+        <ul>
+            <li><a href="#main-analysis">1. Main Event Code Analysis</a></li>
+            <li><a href="#responsibility-analysis">2. Responsibility Futures Analysis</a></li>
+            <li><a href="#project-management">3. Project Management & Timeline</a></li>
+            <li><a href="#appendix">4. Appendix - Raw Data & Assets</a></li>
+        </ul>
+    </div>
+    
+    <!-- Main Analysis Section -->
+    <div class="section-divider" id="main-analysis">
+        <h2>📊 Main Event Code Analysis</h2>
+    </div>
+    
+    <div class="report-section">
+        
+    <div class="header">
+        <h1>LinguaLint Analysis Report</h1>
+        <a href="https://lingualint.com" target="_blank">LinguaLint Website</a>
+        <a href="https://riskrunners.com" target="_blank">Public Company Risk Factors</a>
+        <a href="https://jefferson.cloud" target="_blank">Jefferson.Cloud</a>
+        <a href="https://richards.systems" target="_blank">Richards.Systems</a>
+        <a href="https://richards.plus" target="_blank">Richards.Plus</a>
+    </div>
+
+    <div class="d3-replacement"><p><strong>Interactive D3.js Visualization</strong><br/>This section contains an interactive network graph that is available in the HTML version of this report.</p></div>
+    
+    <div class="data-tables">
+        <h2>Core Subjects (Capitalized Entities)</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin: 20px 0;">
+            <div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Cyril Ramaphosa's</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Security</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Town</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Conflict</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Mandela</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">African</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">National</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">The biggest loser</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Johannesburg</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Tripartite</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Resolution</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">DA</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">the communist party</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">He</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Ntsikelelo</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Alliance</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">the African National Congress</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">The local elections</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">President</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">the South African Communist Party's</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Africa</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Dr.</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Nelson Mandela University</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">the Democratic Alliance (DA</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Cape Town</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">The outcome</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">The potential collapse</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Mokgapa</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Communist</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">ANC National General Council</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Ntsikelelo Breakfast</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Commission</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Nelson Mandela Bay</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Tripartite Alliance</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Centre</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Breakfast</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">the Centre for Security</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Nelson</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Dr. Breakfast</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">the Tripartite Alliance</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">This move</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">SACP members</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">the Mokgapa Commission</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">That</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Cyril</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Democratic</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">University</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">General</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Council</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Bay</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">eThekwini</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">South</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">SACP</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Party</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">The analyst's overview</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Other factors</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Congress</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">You</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Peace</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">South Africa's</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Ramaphosa</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Cape</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Dr. Ntsikelelo Breakfast</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Patriotic</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">ANC</span></div>
+        </div>
+        
+        <h2>Phenomena (Non-capitalized Concepts)</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin: 20px 0;">
+            <div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Cyril Ramaphosa's</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Town</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a contest</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the SACP</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>leadership conference the incumbent faces</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the party's image</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Tripartite</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Resolution</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>government elections are poised to be</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>national support</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the African National Congress</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>national leadership</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Patriotic Alliance and public internal strife</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>whose preliminary reports yet to be</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the South African Communist Party's</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Dr.</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the past</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>with looming local government</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>with looming local government elections</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a referendum</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>one-party dominance</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Communist</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the South African Communist Party's (SACP</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>its internal strategic campaign meetings</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a decisive test</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>its dramatic drop</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Centre</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Nelson</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the Centre for Security</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>no single party</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>SACP members</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>now poised to a decisive test</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>is going to the ANC</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Cyril</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>University</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>service delivery</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the Centre</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>old order of party dominance</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the slow pace</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>The analyst's overview</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Congress</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Cape</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the fragmentation</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>outright victories</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Mandela</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>African</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>The biggest loser</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Johannesburg</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>move follows a</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>leaders now who n't function as</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Ntsikelelo</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>severe internal challenges</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the DA's upcoming leadership conference</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>no return</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Africa</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Nelson Mandela University</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Cape Town</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>development and will a referendum on</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>factors set to</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Mokgapa</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>adding that dents the party</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>whose preliminary reports</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>expected to accelerate fragmentation</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Dr. Breakfast</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the Tripartite Alliance</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>government elections expected to accelerate</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the Mokgapa Commission</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>That</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>only the Democratic Alliance</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Council</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>forecasting turbulent 2026</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>economic development</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Bay</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>eThekwini</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>South</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a recent ANC National General Council decision</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a likely end</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a recent television interview</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the same working-class vote base</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the new year</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Other factors</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>You have leaders who do n't</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Ramaphosa</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>local government elections</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>new year begins political</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Patriotic</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>major parties</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a unified force</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the votes</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Security</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a stark assessment</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Conflict</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the communist party</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the most critical threat</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the tripartite alliance</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Alliance</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a 'point</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the unfolding drama</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the Democratic Alliance (DA</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the SACP would competing for the</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>be competing for same working</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>begins political analysts are</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>key metros</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>analysts are forecasting turbulent</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the polls</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the incumbent</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Commission</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the political environment</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Tripartite Alliance</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>many municipalities</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Breakfast</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>General</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>in key metros Johannesburg Nelson</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>57% to 40%</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>established political structures</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>low voter turnout</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>have leaders now</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>You</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a direct link</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the party</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the ANC</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the year</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Dr. Ntsikelelo Breakfast</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>widespread coalition governments</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>clear control</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>both the growing Patriotic Alliance</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the DA</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>National</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>service delivery in municipalities</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>very public internal strife</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the survival</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>The local elections</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>President</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the 'fragility</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the anticipated findings</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>The outcome</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a battleground</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>The potential collapse</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>ANC National General Council</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Ntsikelelo Breakfast</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the old order</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Nelson Mandela Bay</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>political analysts</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>poor ANC results</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the long-standing Tripartite Alliance</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>clean governance</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the 2024 elections</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>This follows a recent</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>This move</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Dr. Breakfast suggested has pushed the</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Democratic</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>SACP</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Party</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>are about than service delivery</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>acting director</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a picture</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Peace</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>South Africa's</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>You leaders now who</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>have yet to made public</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>ANC</span></div>
+        </div>
+        
+        <h2>Wikipedia Candidates</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin: 20px 0;">
+            <div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>Cyril Ramaphosa's</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>Town</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>a contest</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>the SACP</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>the party's image</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>Tripartite</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>Resolution</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>DA</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>government elections are poised to be</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>He</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>national support</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>the African National Congress</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>national leadership</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>Patriotic Alliance and public internal strife</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>whose preliminary reports yet to be</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>the South African Communist Party's</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>Dr.</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>the past</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>with looming local government</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>with looming local government elections</span></div>
+        </div>
+        
+        <h2>Extracted Sentences</h2>
+        <table style="font-size: 9pt; page-break-inside: avoid;">
+            <thead>
+                <tr><th>Sentence</th><th>Warm Vector<br><small>(Positivity, Engagement, Optimism)</small></th><th>Cold Vector<br><small>(Negativity, Risk, Uncertainty)</small></th></tr>
+            </thead>
+            <tbody>
+                <tr><td>As <span class="phenomenon">the new year</span> begins, <span class="phenomenon">political analysts</span> are forecasting a turbulent 2026, <span class="phenomenon">with looming local government</span> elections expected to accelerate <span class="phenomenon">the fragmentation</span> of <span class="phenomenon">South</span> <span class="phenomenon">Africa</span>'s political scene.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td><span class="phenomenon">The potential collapse</span> of the long-standing <span class="phenomenon">Tripartite</span> <span class="phenomenon">Alliance</span> and instability within <span class="phenomenon">major parties</span> are seen as central to <span class="phenomenon">the unfolding drama</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>In <span class="phenomenon">a recent television interview</span>, <span class="phenomenon">Dr.</span> <span class="phenomenon">Ntsikelelo</span> <span class="phenomenon">Breakfast</span>, <span class="phenomenon">acting director</span> of the <span class="phenomenon">Centre</span> for <span class="phenomenon">Security</span>, <span class="phenomenon">Peace</span> and <span class="phenomenon">Conflict</span> <span class="phenomenon">Resolution</span> at <span class="phenomenon">Nelson</span> <span class="phenomenon">Mandela</span> <span class="phenomenon">University</span>, provided <span class="phenomenon">a stark assessment</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>He identified <span class="phenomenon">the <span class="phenomenon">South</span> <span class="phenomenon"><span class="phenomenon">Africa</span>n</span> <span class="phenomenon">Communist</span> <span class="phenomenon">Party</span>'s</span> (<span class="phenomenon">SACP</span>) declared intention to contest elections independently as <span class="phenomenon">the most critical threat</span> to <span class="phenomenon">the <span class="phenomenon"><span class="phenomenon">Africa</span>n</span> <span class="phenomenon">National</span> <span class="phenomenon">Congress</span></span> (<span class="phenomenon">ANC</span>).</td><td>[0.00, 0.00, 0.00]</td><td><span style="background-color: #ccddff;">[0.04, 0.00, 1.00]</span></td></tr><tr><td>'<span class="phenomenon">The biggest loser</span> unfortunately is going to be <span class="phenomenon">the <span class="phenomenon">ANC</span></span>,' stated <span class="phenomenon">Dr.</span> <span class="phenomenon">Breakfast</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>He explained that <span class="phenomenon">the <span class="phenomenon">SACP</span></span> would be competing for <span class="phenomenon">the same working-class vote base</span> that has traditionally supported <span class="phenomenon">the <span class="phenomenon">ANC</span></span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>'<span class="phenomenon">That</span> is going to split <span class="phenomenon">the votes</span>,' he added.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>This <span class="phenomenon">move follows a</span> recent <span class="phenomenon">ANC</span> <span class="phenomenon">National</span> <span class="phenomenon">General</span> <span class="phenomenon">Council</span> decision to exclude <span class="phenomenon"><span class="phenomenon">SACP</span> members</span> from <span class="phenomenon">its internal strategic campaign meetings</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td><span class="phenomenon">Dr.</span> <span class="phenomenon">Breakfast</span> suggested this has pushed <span class="phenomenon">the communist party</span> to <span class="phenomenon">a 'point</span> of <span class="phenomenon">no return</span>,' signalling <span class="phenomenon">a likely end</span> to the <span class="phenomenon">Tripartite</span> <span class="phenomenon">Alliance</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>'To me it means that <span class="phenomenon">the tripartite alliance</span> is over,' he said.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td><span class="phenomenon">The analyst's overview</span> of <span class="phenomenon">the year</span> ahead painted <span class="phenomenon">a picture</span> of <span class="phenomenon">widespread coalition governments</span>, with <span class="phenomenon">no single party</span> expected to secure <span class="phenomenon">outright victories</span> in <span class="phenomenon">key metros</span> like <span class="phenomenon">Johannesburg</span>, <span class="phenomenon">Nelson</span> <span class="phenomenon">Mandela</span> <span class="phenomenon">Bay</span>, and <span class="phenomenon">eThekwini</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>He predicted <span class="phenomenon">only the <span class="phenomenon">Democratic</span> <span class="phenomenon">Alliance</span></span> (DA) would likely retain <span class="phenomenon">clear control</span> in <span class="phenomenon">Cape</span> <span class="phenomenon">Town</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>However, <span class="phenomenon">Dr.</span> <span class="phenomenon">Breakfast</span> also highlighted <span class="phenomenon">severe internal challenges</span> for <span class="phenomenon">the DA</span>, which faces threats from both the growing <span class="phenomenon">Patriotic</span> <span class="phenomenon">Alliance</span> and <span class="phenomenon">very public internal strife</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>'<span class="phenomenon">You</span> <span class="phenomenon">have leaders now</span> who don't function as <span class="phenomenon">a unified force</span>… crossing swords in public,' he noted, adding that this dents <span class="phenomenon"><span class="phenomenon">the party</span>'s image</span> of stability and <span class="phenomenon">clean governance</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td><span class="phenomenon">The local elections</span>, he argued, are about more than <span class="phenomenon">service delivery</span>; they are <span class="phenomenon">a battleground</span> for <span class="phenomenon">economic development</span> and will be <span class="phenomenon">a referendum</span> on performance.</td><td><span style="background-color: #ffcccc;">[0.00, 0.04, 0.00]</span></td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>He drew <span class="phenomenon">a direct link</span> between <span class="phenomenon">low voter turnout</span> and <span class="phenomenon">the slow pace</span> of <span class="phenomenon">service delivery</span> in <span class="phenomenon">many municipalities</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td><span class="phenomenon">The outcome</span> of <span class="phenomenon">the polls</span> could also destabilise <span class="phenomenon">national leadership</span>.</td><td><span style="background-color: #ffcccc;">[0.00, 0.10, 0.00]</span></td><td><span style="background-color: #ccddff;">[0.00, 0.10, 0.00]</span></td></tr><tr><td><span class="phenomenon">Dr.</span> <span class="phenomenon">Breakfast</span> stated that <span class="phenomenon">poor <span class="phenomenon">ANC</span> results</span> would increase <span class="phenomenon">the 'fragility</span>' of <span class="phenomenon">President</span> <span class="phenomenon"><span class="phenomenon">Cyril</span> <span class="phenomenon">Ramaphosa</span>'s</span> position, as discontent simmers within <span class="phenomenon">the party</span> over <span class="phenomenon">its dramatic drop</span> in <span class="phenomenon">national support</span> from <span class="phenomenon">57% to 40%</span> in <span class="phenomenon">the 2024 elections</span>.</td><td><span style="background-color: #ffcccc;">[0.03, 0.00, 1.00]</span></td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>Other <span class="phenomenon">factors set to</span> define 2026 include <span class="phenomenon"><span class="phenomenon">the DA</span>'s upcoming leadership conference</span>, where <span class="phenomenon">the incumbent</span> faces <span class="phenomenon">a contest</span>, and <span class="phenomenon">the anticipated findings</span> of the <span class="phenomenon">Mokgapa</span> <span class="phenomenon">Commission</span>, <span class="phenomenon">whose preliminary reports</span> have yet to be made public.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td><span class="phenomenon">Dr.</span> <span class="phenomenon">Breakfast</span> concluded that <span class="phenomenon">the political environment</span> remains highly volatile, with <span class="phenomenon">the old order</span> of <span class="phenomenon">one-party dominance</span> firmly in <span class="phenomenon">the past</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>The 2026 <span class="phenomenon">local government elections</span> are now poised to be <span class="phenomenon">a decisive test</span> for <span class="phenomenon">the survival</span> of <span class="phenomenon">established political structures</span> and alliances.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr>
+            </tbody>
+        </table>
+        
+        <h2>Wikipedia Enrichment</h2>
+        <table style="font-size: 9pt; page-break-inside: avoid;">
+            <thead>
+                <tr><th>Concept</th><th>Summary</th><th>URL</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Cyril Ramaphosa's</td><td>Matamela Cyril Ramaphosa ( RAM-ə-FAW-sə or   RAH-mə-POH-sə; (born 17 November 1952) is a South African businessman and politician serving as the president of South Africa since 2018. A former anti-apa...</td><td><a href="https://en.wikipedia.org/wiki/Cyril_Ramaphosa" target="_blank">Cyril Ramaphosa</a></td></tr><tr><td>Town</td><td>...</td><td><a href="https://en.wikipedia.org/wiki/Town" target="_blank">Town</a></td></tr><tr><td>a contest</td><td>...</td><td><a href="https://en.wikipedia.org/wiki/a_contest" target="_blank">a contest</a></td></tr><tr><td>the SACP</td><td>The South African Communist Party (SACP) is a communist party in South Africa. It was founded on 12 February 1921 as the Communist Party of South Africa (CPSA), and tactically dissolved itself in 1950...</td><td><a href="https://en.wikipedia.org/wiki/South_African_Communist_Party" target="_blank">South African Communist Party</a></td></tr><tr><td>the party's image</td><td>...</td><td><a href="https://en.wikipedia.org/wiki/the_party's_image" target="_blank">the party's image</a></td></tr><tr><td>Tripartite</td><td>...</td><td><a href="https://en.wikipedia.org/wiki/Tripartite" target="_blank">Tripartite</a></td></tr><tr><td>Resolution</td><td>...</td><td><a href="https://en.wikipedia.org/wiki/Resolution" target="_blank">Resolution</a></td></tr><tr><td>DA</td><td>...</td><td><a href="https://en.wikipedia.org/wiki/DA" target="_blank">DA</a></td></tr><tr><td>government elections are poised to be</td><td>General elections were held in India in four phases between 20 April and 10 May 2004. Over 670 million people were eligible to vote, electing 543 members of the 14th Lok Sabha....</td><td><a href="https://en.wikipedia.org/wiki/2024_Indian_general_election" target="_blank">2024 Indian general election</a></td></tr><tr><td>He</td><td>The is a grammatical article in English, denoting nouns that are already or about to be mentioned, under discussion, implied or otherwise presumed familiar to listeners, readers, or speakers. It is th...</td><td><a href="https://en.wikipedia.org/wiki/He" target="_blank">He</a></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    </div>
+    
+    <!-- Responsibility Analysis Section -->
+    <div class="section-divider" id="responsibility-analysis">
+        <h2>🎯 Responsibility Futures Analysis</h2>
+    </div>
+    
+    <div class="report-section">
+        
+    <div class="container">
+        <div class="header">
+            <h1>Responsibility Futures Analysis</h1>
+            <div class="subtitle">Powered by LinguaLint Event Code Extractor</div>
+            <div class="timestamp">Generated: January 03, 2026 at 08:22 AM</div>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">65</div>
+                <div class="stat-label">Total Entities</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">21</div>
+                <div class="stat-label">Total Events</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">16.33</div>
+                <div class="stat-label">Avg Responsibility Ratio</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">56</div>
+                <div class="stat-label">High Risk Entities</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">9</div>
+                <div class="stat-label">Low Risk Entities</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">1.00</div>
+                <div class="stat-label">Median R-Ratio</div>
+            </div>
+        </div>
+        
+        <div class="content">
+            
+            <div class="section">
+                <h2>📊 Responsibility Matrix Dashboard</h2>
+                <p>Comprehensive visualization of responsibility ratios, risk assessments, and entity relationships.</p>
+                <div class="visualization no-break">
+                    <img src="responsibility_matrix_20260103_082225.png" alt="Responsibility Matrix Dashboard" style="max-width: 95% !important; max-height: 6in !important; height: auto !important; display: block; margin: 0.25in auto;">
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🌡️ Vector Analysis</h2>
+                <p>Warm and cold vector analysis showing intention and negligence indicators for top entities.</p>
+                <div class="visualization no-break">
+                    <img src="vector_analysis_20260103_082225.png" alt="Vector Analysis" style="max-width: 95% !important; max-height: 6in !important; height: auto !important; display: block; margin: 0.25in auto;">
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>📈 Statistical Summary</h2>
+                <p>Distribution analysis and correlation patterns in the responsibility data.</p>
+                <div class="visualization no-break">
+                    <img src="statistical_summary_20260103_082225.png" alt="Statistical Summary" style="max-width: 95% !important; max-height: 6in !important; height: auto !important; display: block; margin: 0.25in auto;">
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🏆 Top Performing Entities</h2>
+                <p>Entities with the highest responsibility ratios (R = Intention / Negligence).</p>
+                <table class="entity-table" style="font-size: 9pt; page-break-inside: avoid;">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Entity</th>
+                            <th>R-Ratio</th>
+                            <th>Risk Level</th>
+                            <th>Mentions</th>
+                            <th>Intention</th>
+                            <th>Negligence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td><strong>1</strong></td>
+                            <td>Cyril Ramaphosa's</td>
+                            <td><strong>212.12</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>1</td>
+                            <td>21.21</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>2</strong></td>
+                            <td>President</td>
+                            <td><strong>212.12</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>1</td>
+                            <td>21.21</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>3</strong></td>
+                            <td>Cyril</td>
+                            <td><strong>212.12</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>1</td>
+                            <td>21.21</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>4</strong></td>
+                            <td>Ramaphosa</td>
+                            <td><strong>212.12</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>1</td>
+                            <td>21.21</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>5</strong></td>
+                            <td>Dr. Breakfast</td>
+                            <td><strong>42.42</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>5</td>
+                            <td>4.24</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>6</strong></td>
+                            <td>Dr.</td>
+                            <td><strong>35.35</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>6</td>
+                            <td>3.54</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>7</strong></td>
+                            <td>Breakfast</td>
+                            <td><strong>35.35</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>6</td>
+                            <td>3.54</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>8</strong></td>
+                            <td>That</td>
+                            <td><strong>35.35</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>6</td>
+                            <td>3.54</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>9</strong></td>
+                            <td>The local elections</td>
+                            <td><strong>16.00</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>1</td>
+                            <td>1.60</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>10</strong></td>
+                            <td>The outcome</td>
+                            <td><strong>1.33</strong></td>
+                            <td><span class="risk-badge risk-high">High</span></td>
+                            <td>1</td>
+                            <td>4.00</td>
+                            <td>3.00</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>11</strong></td>
+                            <td>He</td>
+                            <td><strong>1.07</strong></td>
+                            <td><span class="risk-badge risk-high">High</span></td>
+                            <td>20</td>
+                            <td>1.34</td>
+                            <td>1.25</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>12</strong></td>
+                            <td>ANC</td>
+                            <td><strong>1.04</strong></td>
+                            <td><span class="risk-badge risk-high">High</span></td>
+                            <td>14</td>
+                            <td>1.63</td>
+                            <td>1.57</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>13</strong></td>
+                            <td>National</td>
+                            <td><strong>1.01</strong></td>
+                            <td><span class="risk-badge risk-high">High</span></td>
+                            <td>4</td>
+                            <td>6.30</td>
+                            <td>6.25</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>14</strong></td>
+                            <td>Security</td>
+                            <td><strong>1.00</strong></td>
+                            <td><span class="risk-badge risk-very-high">Very High</span></td>
+                            <td>1</td>
+                            <td>0.10</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>15</strong></td>
+                            <td>Town</td>
+                            <td><strong>1.00</strong></td>
+                            <td><span class="risk-badge risk-very-high">Very High</span></td>
+                            <td>1</td>
+                            <td>0.10</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>16</strong></td>
+                            <td>Conflict</td>
+                            <td><strong>1.00</strong></td>
+                            <td><span class="risk-badge risk-very-high">Very High</span></td>
+                            <td>1</td>
+                            <td>0.10</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>17</strong></td>
+                            <td>Mandela</td>
+                            <td><strong>1.00</strong></td>
+                            <td><span class="risk-badge risk-very-high">Very High</span></td>
+                            <td>2</td>
+                            <td>0.10</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>18</strong></td>
+                            <td>The biggest loser</td>
+                            <td><strong>1.00</strong></td>
+                            <td><span class="risk-badge risk-very-high">Very High</span></td>
+                            <td>1</td>
+                            <td>0.10</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>19</strong></td>
+                            <td>Johannesburg</td>
+                            <td><strong>1.00</strong></td>
+                            <td><span class="risk-badge risk-very-high">Very High</span></td>
+                            <td>1</td>
+                            <td>0.10</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>20</strong></td>
+                            <td>Tripartite</td>
+                            <td><strong>1.00</strong></td>
+                            <td><span class="risk-badge risk-very-high">Very High</span></td>
+                            <td>3</td>
+                            <td>0.10</td>
+                            <td>0.10</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="methodology">
+                <h3>🔬 Methodology</h3>
+                <p><strong>Responsibility Ratio (R):</strong> Calculated as R = Intention Score / Negligence Score</p>
+                <p><strong>Intention Score:</strong> Derived from warm vectors (Positivity × 0.4 + Engagement × 0.4 + Optimism × 0.2) × 100</p>
+                <p><strong>Negligence Score:</strong> Derived from cold vectors (Negativity × 0.5 + Risk × 0.3 + Uncertainty × 0.2) × 100</p>
+                <p><strong>Risk Levels:</strong></p>
+                <ul>
+                    <li><strong>Very Low:</strong> R > 10 (Highly responsible, minimal risk)</li>
+                    <li><strong>Low:</strong> 5 < R ≤ 10 (Generally responsible)</li>
+                    <li><strong>Moderate:</strong> 2 < R ≤ 5 (Balanced responsibility)</li>
+                    <li><strong>High:</strong> 1 < R ≤ 2 (Concerning responsibility levels)</li>
+                    <li><strong>Very High:</strong> R ≤ 1 (High risk, negligence exceeds intention)</li>
+                </ul>
+                <p><strong>Data Source:</strong> Analysis based on 21 events extracted from LinguaLint processing, covering 65 unique entities.</p>
+                <p><strong>Original Analysis:</strong> 2026-01-03T08:22:25.803100</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Responsibility Futures Engine v2.0 | LinguaLint Integration</p>
+            <p>Report generated from: extraction_20260103_082225_responsibility_analysis.json</p>
+        </div>
+    </div>
+
+    </div>
+    
+    <!-- Project Management Section -->
+    <div class="section-divider" id="project-management">
+        <h2>📈 Project Management & Timeline</h2>
+    </div>
+    
+    <div class="report-section">
+        
+    <h1>LinguaLint Risk Factor Analysis - Project Plan</h1>
+    <p>Generated from risk factor extraction on 2026-01-03 08:22</p>
+    
+    <div class="gantt-container">
+        <table class="gantt-table" style="font-size: 9pt; page-break-inside: avoid;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Task Name</th>
+                    <th>Duration</th>
+                    <th>Start Date</th>
+                    <th>Finish Date</th>
+                    <th>Resource</th>
+                    <th>Visual Timeline</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                <tr>
+                    <td>1</td>
+                    <td>Phase 1: Risk Assessment & Research</td>
+                    <td>0 days</td>
+                    <td>2026-01-03</td>
+                    <td>2026-01-03</td>
+                    <td></td>
+                    <td><div class="task-bar milestone" title="Initial analysis phase"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>2</td>
+                    <td>Research Subject: Cyril Ramaphosa's</td>
+                    <td>2 days</td>
+                    <td>2026-01-03</td>
+                    <td>2026-01-05</td>
+                    <td>Risk Analyst</td>
+                    <td><div class="task-bar risk-analyst" title="Research regulatory and market implications of Cyril Ramaphosa's"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>3</td>
+                    <td>Research Subject: Security</td>
+                    <td>2 days</td>
+                    <td>2026-01-03</td>
+                    <td>2026-01-05</td>
+                    <td>Risk Analyst</td>
+                    <td><div class="task-bar risk-analyst" title="Research regulatory and market implications of Security"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>4</td>
+                    <td>Research Subject: Town</td>
+                    <td>2 days</td>
+                    <td>2026-01-03</td>
+                    <td>2026-01-05</td>
+                    <td>Risk Analyst</td>
+                    <td><div class="task-bar risk-analyst" title="Research regulatory and market implications of Town"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>5</td>
+                    <td>Research Subject: Conflict</td>
+                    <td>2 days</td>
+                    <td>2026-01-03</td>
+                    <td>2026-01-05</td>
+                    <td>Risk Analyst</td>
+                    <td><div class="task-bar risk-analyst" title="Research regulatory and market implications of Conflict"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>6</td>
+                    <td>Research Subject: Mandela</td>
+                    <td>2 days</td>
+                    <td>2026-01-03</td>
+                    <td>2026-01-05</td>
+                    <td>Risk Analyst</td>
+                    <td><div class="task-bar risk-analyst" title="Research regulatory and market implications of Mandela"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>7</td>
+                    <td>Wiki Research: Cyril Ramaphosa's</td>
+                    <td>1 days</td>
+                    <td>2026-01-03</td>
+                    <td>2026-01-04</td>
+                    <td>Researcher</td>
+                    <td><div class="task-bar researcher" title="Background research: https://en.wikipedia.org/wiki/Cyril_Ramaphosa"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>8</td>
+                    <td>Phase 2: Risk Mitigation Planning</td>
+                    <td>0 days</td>
+                    <td>2026-01-04</td>
+                    <td>2026-01-04</td>
+                    <td></td>
+                    <td><div class="task-bar milestone" title="Develop mitigation strategies"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>9</td>
+                    <td>Mitigate High Risk Item #4</td>
+                    <td>3 days</td>
+                    <td>2026-01-04</td>
+                    <td>2026-01-07</td>
+                    <td>Risk Manager</td>
+                    <td><div class="task-bar risk-manager" title="Address: He identified the South African Communist Party's (SACP) declared intention to contest elec"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>10</td>
+                    <td>Leverage Opportunity #18</td>
+                    <td>2 days</td>
+                    <td>2026-01-04</td>
+                    <td>2026-01-06</td>
+                    <td>Strategy Lead</td>
+                    <td><div class="task-bar strategy-lead" title="Opportunity: Dr. Breakfast stated that poor ANC results would increase the 'fragility' of President "></div></td>
+                </tr>
+            
+                <tr>
+                    <td>11</td>
+                    <td>Phase 3: Implementation & Monitoring</td>
+                    <td>0 days</td>
+                    <td>2026-01-05</td>
+                    <td>2026-01-05</td>
+                    <td></td>
+                    <td><div class="task-bar milestone" title="Execute and track progress"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>12</td>
+                    <td>Monitor: Cyril Ramaphosa's</td>
+                    <td>5 days</td>
+                    <td>2026-01-05</td>
+                    <td>2026-01-10</td>
+                    <td>Operations Team</td>
+                    <td><div class="task-bar operations-team" title="Ongoing monitoring and assessment of Cyril Ramaphosa's"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>13</td>
+                    <td>Monitor: Town</td>
+                    <td>5 days</td>
+                    <td>2026-01-05</td>
+                    <td>2026-01-10</td>
+                    <td>Operations Team</td>
+                    <td><div class="task-bar operations-team" title="Ongoing monitoring and assessment of Town"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>14</td>
+                    <td>Monitor: a contest</td>
+                    <td>5 days</td>
+                    <td>2026-01-05</td>
+                    <td>2026-01-10</td>
+                    <td>Operations Team</td>
+                    <td><div class="task-bar operations-team" title="Ongoing monitoring and assessment of a contest"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>15</td>
+                    <td>Project Review & Documentation</td>
+                    <td>2 days</td>
+                    <td>2026-01-05</td>
+                    <td>2026-01-07</td>
+                    <td>Project Manager</td>
+                    <td><div class="task-bar project-manager" title="Compile results and lessons learned"></div></td>
+                </tr>
+            
+            </tbody>
+        </table>
+    </div>
+    
+    <h2>Legend</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 20px 0;">
+        <div><span class="task-bar risk-analyst" style="display: inline-block; width: 20px;"></span> Risk Analyst</div>
+        <div><span class="task-bar researcher" style="display: inline-block; width: 20px;"></span> Researcher</div>
+        <div><span class="task-bar risk-manager" style="display: inline-block; width: 20px;"></span> Risk Manager</div>
+        <div><span class="task-bar strategy-lead" style="display: inline-block; width: 20px;"></span> Strategy Lead</div>
+        <div><span class="task-bar operations-team" style="display: inline-block; width: 20px;"></span> Operations Team</div>
+        <div><span class="task-bar project-manager" style="display: inline-block; width: 20px;"></span> Project Manager</div>
+    </div>
+
+    </div>
+    
+    <!-- Appendix -->
+    <div class="section-divider" id="appendix">
+        <h2>📎 Appendix</h2>
+    </div>
+    
+    <div class="report-section">
+        <h3>Generated Files</h3>
+        <ul>
+            <li>📄 Raw extraction data: extraction_20260103_082225.json</li>
+            <li>📊 Responsibility analysis: extraction_20260103_082225_responsibility_analysis.json</li>
+            <li>📈 Project plan: project_plan_20260103_082225.csv</li>
+            <li>🎨 Visualizations: Multiple PNG files with analysis charts</li>
+        </ul>
+        
+        <h3>Analysis Metadata</h3>
+        <p><strong>Timestamp:</strong> 20260103_082225</p>
+        <p><strong>Generated:</strong> 2026-01-03T08:22:27.363934</p>
+        <p><strong>System:</strong> LinguaLint Event Code Extractor with Responsibility Futures Analysis</p>
+    </div>
+</body>
+</html>

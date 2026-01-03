@@ -1,0 +1,499 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsibility Futures Analysis Report</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            background: #f8f9fa;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .visualization {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .visualization img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .entity-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .entity-table th {
+            background: #34495e;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .entity-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .entity-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .risk-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .risk-very-low { background: #2ecc71; color: white; }
+        .risk-low { background: #27ae60; color: white; }
+        .risk-moderate { background: #f39c12; color: white; }
+        .risk-high { background: #e74c3c; color: white; }
+        .risk-very-high { background: #c0392b; color: white; }
+        
+        .methodology {
+            background: #ecf0f1;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        
+        .methodology h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+        
+        .timestamp {
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Responsibility Futures Analysis</h1>
+            <div class="subtitle">Powered by LinguaLint Event Code Extractor</div>
+            <div class="timestamp">Generated: January 03, 2026 at 08:22 AM</div>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">65</div>
+                <div class="stat-label">Total Entities</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">21</div>
+                <div class="stat-label">Total Events</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">16.33</div>
+                <div class="stat-label">Avg Responsibility Ratio</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">56</div>
+                <div class="stat-label">High Risk Entities</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">9</div>
+                <div class="stat-label">Low Risk Entities</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">1.00</div>
+                <div class="stat-label">Median R-Ratio</div>
+            </div>
+        </div>
+        
+        <div class="content">
+            
+            <div class="section">
+                <h2>📊 Responsibility Matrix Dashboard</h2>
+                <p>Comprehensive visualization of responsibility ratios, risk assessments, and entity relationships.</p>
+                <div class="visualization">
+                    <img src="responsibility_matrix_20260103_082225.png" alt="Responsibility Matrix Dashboard">
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🌡️ Vector Analysis</h2>
+                <p>Warm and cold vector analysis showing intention and negligence indicators for top entities.</p>
+                <div class="visualization">
+                    <img src="vector_analysis_20260103_082225.png" alt="Vector Analysis">
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>📈 Statistical Summary</h2>
+                <p>Distribution analysis and correlation patterns in the responsibility data.</p>
+                <div class="visualization">
+                    <img src="statistical_summary_20260103_082225.png" alt="Statistical Summary">
+                </div>
+            </div>
+            
+            
+            <div class="section">
+                <h2>🏆 Top Performing Entities</h2>
+                <p>Entities with the highest responsibility ratios (R = Intention / Negligence).</p>
+                <table class="entity-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Entity</th>
+                            <th>R-Ratio</th>
+                            <th>Risk Level</th>
+                            <th>Mentions</th>
+                            <th>Intention</th>
+                            <th>Negligence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td><strong>1</strong></td>
+                            <td>Cyril Ramaphosa's</td>
+                            <td><strong>212.12</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>1</td>
+                            <td>21.21</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>2</strong></td>
+                            <td>President</td>
+                            <td><strong>212.12</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>1</td>
+                            <td>21.21</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>3</strong></td>
+                            <td>Cyril</td>
+                            <td><strong>212.12</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>1</td>
+                            <td>21.21</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>4</strong></td>
+                            <td>Ramaphosa</td>
+                            <td><strong>212.12</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>1</td>
+                            <td>21.21</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>5</strong></td>
+                            <td>Dr. Breakfast</td>
+                            <td><strong>42.42</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>5</td>
+                            <td>4.24</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>6</strong></td>
+                            <td>Dr.</td>
+                            <td><strong>35.35</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>6</td>
+                            <td>3.54</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>7</strong></td>
+                            <td>Breakfast</td>
+                            <td><strong>35.35</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>6</td>
+                            <td>3.54</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>8</strong></td>
+                            <td>That</td>
+                            <td><strong>35.35</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>6</td>
+                            <td>3.54</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>9</strong></td>
+                            <td>The local elections</td>
+                            <td><strong>16.00</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>1</td>
+                            <td>1.60</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>10</strong></td>
+                            <td>The outcome</td>
+                            <td><strong>1.33</strong></td>
+                            <td><span class="risk-badge risk-high">High</span></td>
+                            <td>1</td>
+                            <td>4.00</td>
+                            <td>3.00</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>11</strong></td>
+                            <td>He</td>
+                            <td><strong>1.07</strong></td>
+                            <td><span class="risk-badge risk-high">High</span></td>
+                            <td>20</td>
+                            <td>1.34</td>
+                            <td>1.25</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>12</strong></td>
+                            <td>ANC</td>
+                            <td><strong>1.04</strong></td>
+                            <td><span class="risk-badge risk-high">High</span></td>
+                            <td>14</td>
+                            <td>1.63</td>
+                            <td>1.57</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>13</strong></td>
+                            <td>National</td>
+                            <td><strong>1.01</strong></td>
+                            <td><span class="risk-badge risk-high">High</span></td>
+                            <td>4</td>
+                            <td>6.30</td>
+                            <td>6.25</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>14</strong></td>
+                            <td>Security</td>
+                            <td><strong>1.00</strong></td>
+                            <td><span class="risk-badge risk-very-high">Very High</span></td>
+                            <td>1</td>
+                            <td>0.10</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>15</strong></td>
+                            <td>Town</td>
+                            <td><strong>1.00</strong></td>
+                            <td><span class="risk-badge risk-very-high">Very High</span></td>
+                            <td>1</td>
+                            <td>0.10</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>16</strong></td>
+                            <td>Conflict</td>
+                            <td><strong>1.00</strong></td>
+                            <td><span class="risk-badge risk-very-high">Very High</span></td>
+                            <td>1</td>
+                            <td>0.10</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>17</strong></td>
+                            <td>Mandela</td>
+                            <td><strong>1.00</strong></td>
+                            <td><span class="risk-badge risk-very-high">Very High</span></td>
+                            <td>2</td>
+                            <td>0.10</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>18</strong></td>
+                            <td>The biggest loser</td>
+                            <td><strong>1.00</strong></td>
+                            <td><span class="risk-badge risk-very-high">Very High</span></td>
+                            <td>1</td>
+                            <td>0.10</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>19</strong></td>
+                            <td>Johannesburg</td>
+                            <td><strong>1.00</strong></td>
+                            <td><span class="risk-badge risk-very-high">Very High</span></td>
+                            <td>1</td>
+                            <td>0.10</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>20</strong></td>
+                            <td>Tripartite</td>
+                            <td><strong>1.00</strong></td>
+                            <td><span class="risk-badge risk-very-high">Very High</span></td>
+                            <td>3</td>
+                            <td>0.10</td>
+                            <td>0.10</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="methodology">
+                <h3>🔬 Methodology</h3>
+                <p><strong>Responsibility Ratio (R):</strong> Calculated as R = Intention Score / Negligence Score</p>
+                <p><strong>Intention Score:</strong> Derived from warm vectors (Positivity × 0.4 + Engagement × 0.4 + Optimism × 0.2) × 100</p>
+                <p><strong>Negligence Score:</strong> Derived from cold vectors (Negativity × 0.5 + Risk × 0.3 + Uncertainty × 0.2) × 100</p>
+                <p><strong>Risk Levels:</strong></p>
+                <ul>
+                    <li><strong>Very Low:</strong> R > 10 (Highly responsible, minimal risk)</li>
+                    <li><strong>Low:</strong> 5 < R ≤ 10 (Generally responsible)</li>
+                    <li><strong>Moderate:</strong> 2 < R ≤ 5 (Balanced responsibility)</li>
+                    <li><strong>High:</strong> 1 < R ≤ 2 (Concerning responsibility levels)</li>
+                    <li><strong>Very High:</strong> R ≤ 1 (High risk, negligence exceeds intention)</li>
+                </ul>
+                <p><strong>Data Source:</strong> Analysis based on 21 events extracted from LinguaLint processing, covering 65 unique entities.</p>
+                <p><strong>Original Analysis:</strong> 2026-01-03T08:22:25.803100</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Responsibility Futures Engine v2.0 | LinguaLint Integration</p>
+            <p>Report generated from: extraction_20260103_082225_responsibility_analysis.json</p>
+        </div>
+    </div>
+</body>
+</html>

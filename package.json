@@ -1,0 +1,13 @@
+{
+  "name": "lingualint-risk-extractor",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "web-server.js",
+  "scripts": {
+    "start": "node web-server.js",
+    "test": "python -m pytest tests/"
+  },
+  "dependencies": {
+    "express": "^4.18.0"
+  }
+}

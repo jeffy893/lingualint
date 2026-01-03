@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "lingualint": {
+      "command": "python",
+      "args": ["server.py"],
+      "cwd": "/path/to/lingualint"
+    }
+  }
+}
