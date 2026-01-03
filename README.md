@@ -1,4 +1,4 @@
-# [LinguaLint](https://lingualint.com) : Meanest, Cleanest, NLPness around!
+# [LinguaLint](https://www.lingualint.com) : Meanest, Cleanest, NLPness around!
 
 ## Table of Contents
 
@@ -36,7 +36,7 @@ A modern NLP-powered system for extracting and analyzing event codes from financ
 - ✅ **Open source projects** and community tools
 - ✅ **SaaS applications** (with source code sharing)
 
-**Need a commercial license?** Contact **licensing@lingualint.com** for proprietary use cases.
+**Need a commercial license?** Contact **jefferson@richards.plus** for proprietary use cases.
 
 **Why AGPL?** We believe in open innovation - if you improve LinguaLint and share it as a service, the community should benefit from your enhancements too. [Learn more about our license choice](#license).
 
@@ -434,7 +434,7 @@ All generated files are saved to:
 
 ## Links & Resources
 
-* **[LinguaLint Website](https://lingualint.com)**
+* **[LinguaLint Website](https://www.lingualint.com)**
 * **[Risk Runners](https://riskrunners.com)** - Public Company Risk Factors
 * **[Jefferson.Cloud](https://jefferson.cloud)** - Socialize
 * **[Richards.Systems](https://richards.systems)** - Decode
@@ -471,7 +471,7 @@ If AGPL-3.0 doesn't fit your use case, we offer **dual licensing**:
 - **Open Source**: Free under AGPL-3.0 (share your improvements)
 - **Commercial**: Proprietary license available for closed-source applications
 
-Contact us at **licensing@lingualint.com** to discuss commercial licensing options.
+Contact us at **jefferson@richards.plus** to discuss commercial licensing options.
 
 ### License Compatibility
 
@@ -556,9 +556,9 @@ python3.10 -m pytest tests/
 
 - **Can I use this commercially?** Yes! See our [License FAQ](docs/FAQ.md#license--legal-questions)
 - **What's AGPL-3.0?** Open source license that requires sharing improvements to network services
-- **Need proprietary licensing?** Contact licensing@lingualint.com
+- **Need proprietary licensing?** Contact jefferson@richards.plus
 - **How do I get started?** See [Quick Start](#quick-start) above
 - **Performance questions?** Check our [Performance FAQ](docs/FAQ.md#performance-questions)
 - **Integration help?** See [Usage FAQ](docs/FAQ.md#usage-questions)
 
-**More questions?** Read our complete [FAQ](docs/FAQ.md) or contact hello@lingualint.com
+**More questions?** Read our complete [FAQ](docs/FAQ.md) or contact jefferson@richards.plus
