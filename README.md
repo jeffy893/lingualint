@@ -24,7 +24,7 @@
 
 While tech giants like IBM, Google, and OpenAI dominate the market with massive LLMs and complex engineering services, LinguaLint offers a streamlined alternative.
 
-LinguaLint is a lightweight LLM middleware designed to extract "hashtags" and identify semantic overlaps incoporating Wikipedia's "Blue Words" and enriched sentiment analysis. Built on the linguistic foundations of Wierzbicka's Semantic Primes, and Zipf's Law, LinguaLint offers a more elegant architecture than traditional "Word2Vec" NLP methods. It is currently positioned to function across more than 20 languages.
+LinguaLint is a lightweight LLM middleware designed to extract "hashtags" and identify semantic overlaps incoporating Wikipedia's "Blue Words" and enriched sentiment analysis. Built on the linguistic foundations of Wierzbicka's [Semantic Primes[(https://en.wikipedia.org/wiki/Natural_semantic_metalanguage)], and [Zipf's Law](https://en.wikipedia.org/wiki/Zipf%27s_law), LinguaLint offers a more elegant architecture than traditional "Word2Vec" NLP methods. It is currently positioned to function across more than 20 languages.
 
 A modern NLP-powered system for extracting and analyzing event codes from financial documents, news articles, or other english natural language (e.g. 10-K filings, SEC reports, news articles). Built with python3.10, SpaCy, and D3.js visualization. Now featuring **[Responsibility Futures Analysis](https://github.com/jeffy893/riskrunners/tree/dev/2.0/responsibility-futures)** for entity risk assessment.
 
