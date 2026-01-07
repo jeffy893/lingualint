@@ -1,0 +1,25 @@
+ID,Task_Name,Duration,Start_Date,Finish_Date,Predecessors,Resource_Names,Notes
+1,Phase 1: Risk Assessment & Research,0 days,2026-01-06,2026-01-06,,,Initial analysis phase
+2,Research Subject: New,2 days,2026-01-06,2026-01-08,1,Risk Analyst,Research regulatory and market implications of New
+3,Research Subject: Yanukovych,2 days,2026-01-06,2026-01-08,1,Risk Analyst,Research regulatory and market implications of Yanukovych
+4,Research Subject: Miami,2 days,2026-01-06,2026-01-08,1,Risk Analyst,Research regulatory and market implications of Miami
+5,Research Subject: Regime,2 days,2026-01-06,2026-01-08,1,Risk Analyst,Research regulatory and market implications of Regime
+6,Research Subject: Monroe,2 days,2026-01-06,2026-01-08,1,Risk Analyst,Research regulatory and market implications of Monroe
+7,Wiki Research: Regime,1 days,2026-01-06,2026-01-07,1,Researcher,Background research: https://en.wikipedia.org/wiki/Regime
+8,Phase 2: Risk Mitigation Planning,0 days,2026-01-07,2026-01-07,"2,3,4,5,6,7",,Develop mitigation strategies
+9,Leverage Opportunity #14,2 days,2026-01-07,2026-01-09,8,Strategy Lead,"Opportunity: '
+'We are strong enough to bear the misfortunes of others...."
+10,Leverage Opportunity #15,2 days,2026-01-07,2026-01-09,8,Strategy Lead,"Opportunity: '
+'The extreme pleasure we take in talking about ourselves should make us afraid that we may scarcely be giving any to our listeners.'
+'Everyone compl..."
+11,Mitigate High Risk Item #16,3 days,2026-01-07,2026-01-10,8,Risk Manager,"Address: '
+'If we had no faults we should not take so much pleasure in noting those of others.'
+'Quarrels would not last long if the fault was only on one side..."
+12,Mitigate High Risk Item #30,3 days,2026-01-07,2026-01-10,8,Risk Manager,"Address: The renewed advisory instructs American citizens currently in Russia to depart immediately, citing the danger associated with the ongoing war with Ukr..."
+13,Leverage Opportunity #31,2 days,2026-01-07,2026-01-09,8,Strategy Lead,"Opportunity: Back in Feb. 2022, when Russia launched its military operation against Ukraine, many Americans were appalled that Russia would violate the territorial..."
+14,Mitigate High Risk Item #41,3 days,2026-01-07,2026-01-10,8,Risk Manager,"Address: When contemplating this, consider that Venezuela is 2000 miles from Miami and poses zero military threat to the United States...."
+15,Phase 3: Implementation & Monitoring,0 days,2026-01-08,2026-01-08,"9,10,11,12,13,14",,Execute and track progress
+16,Monitor: the legal precedent,5 days,2026-01-08,2026-01-13,15,Operations Team,Ongoing monitoring and assessment of the legal precedent
+17,Monitor: Regime,5 days,2026-01-08,2026-01-13,15,Operations Team,Ongoing monitoring and assessment of Regime
+18,Monitor: Monroe,5 days,2026-01-08,2026-01-13,15,Operations Team,Ongoing monitoring and assessment of Monroe
+19,Project Review & Documentation,2 days,2026-01-08,2026-01-10,15,Project Manager,Compile results and lessons learned

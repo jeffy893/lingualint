@@ -103,11 +103,17 @@ try:
     results = processor.process_text(text, enrich_wikipedia=True)
     
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    reports_dir = Path("./reports")
-    reports_dir.mkdir(exist_ok=True)
     
-    json_file = reports_dir / f"extraction_{timestamp}.json"
-    html_file = reports_dir / f"report_{timestamp}.html"
+    # Create lingualint_analysis directory structure
+    analysis_base_dir = Path("./lingualint_analysis")
+    analysis_base_dir.mkdir(exist_ok=True)
+    
+    # Create timestamped analysis folder
+    analysis_dir = analysis_base_dir / f"analysis_{timestamp}"
+    analysis_dir.mkdir(exist_ok=True)
+    
+    json_file = analysis_dir / f"extraction_{timestamp}.json"
+    html_file = analysis_dir / f"report_{timestamp}.html"
     
     with open(json_file, 'w') as f:
         json.dump(results, f, indent=2)
@@ -130,8 +136,7 @@ try:
     # Generate Comprehensive PDF
     pdf_status = "SKIPPED"
     try:
-        from pathlib import Path
-        pdf_file = generate_comprehensive_pdf(timestamp, Path('./reports'))
+        pdf_file = generate_comprehensive_pdf(timestamp, analysis_dir)
         if pdf_file:
             pdf_status = f"COMPLETED - {pdf_file.name}"
         else:
@@ -147,6 +152,7 @@ try:
     print(f"Responsibility Analysis: {responsibility_status}")
     print(f"PDF Generation: {pdf_status}")
     print(f"Main Report: {html_file}")
+    print(f"Analysis Directory: {analysis_dir}")
     
 except Exception as e:
     print(f"Error: {str(e)}")

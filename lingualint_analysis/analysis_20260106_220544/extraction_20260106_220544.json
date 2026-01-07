@@ -1,0 +1,1097 @@
+{
+  "_index": "lingualint_event",
+  "_id": "122405068f3db53639a0",
+  "_score": 1.0,
+  "_source": {
+    "@timestamp": "2026-01-06T22:05:25.541288",
+    "tag": "",
+    "email": "",
+    "identity": {
+      "timestamp": "2026-01-06T22:05:25.541292",
+      "tag": "",
+      "email": "",
+      "first_sentence": "I woke up this morning and saw the news that, last night, the U.S. launched a military operation against Venezuela and swiftly captured President Nicholas Maduro."
+    },
+    "sentences": [
+      {
+        "sentence": "I woke up this morning and saw the news that, last night, the U.S. launched a military operation against Venezuela and swiftly captured President Nicholas Maduro.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "The Trump administration released the following image of the detained man on board a U.S. military aircraft.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "As I drank my morning coffee, my thoughts drifted not to Venezuela, but to the French diplomat and political philosopher, Alexis de Tocqueville, who visited America 1831-1832 to study our prison system.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "Along the way, he made many observations of American society, which he later presented in his book, Democracy in America, published in two volumes in 1835 and 1840.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "I've long been a great admirer of Tocqueville, who combined keen powers of observation with deep philosophical insights into human nature.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "Democracy in America and The Old Regime and the Revolution are masterpieces of social and political philosophy.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "I often wonder what Tocqueville would think about America if he travelled the country today.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "I'm confident he would be hard-pressed to reconcile the extreme malaise\u2014both physical and spiritual\u2014of the American people and their cities with the extreme confidence of their leaders that the United States should rule the world.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "Being a gentleman and diplomat of noble ancestry, he was doubtless familiar with the Maxims of Fran\u00e7ois de La Rochefoucauld, a famous courtier, soldier, and writer during the 17th century.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "The Maxims are a reflection on our boundless capacity for self-deception, self-serving conduct, and virtue-signaling.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "The following are some of my favorites.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "'We are so accustomed to disguise ourselves to others, that in the end, we become disguised to ourselves.'",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "'We confess small faults only to convince people that we have no greater ones.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "'\n'We are strong enough to bear the misfortunes of others.",
+        "warm_vector": [
+          0.1,
+          0.0,
+          1.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "'\n'The extreme pleasure we take in talking about ourselves should make us afraid that we may scarcely be giving any to our listeners.'\n'Everyone complains of his memory, and no one complains of his judgment.'\n'We would frequently be ashamed of our good deeds if people saw all the motives that produced them.'\n'No people are more often wrong than those who will not allow themselves to be wrong.",
+        "warm_vector": [
+          0.014492753623188406,
+          0.028985507246376812,
+          1.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.014492753623188406,
+          0.0
+        ]
+      },
+      {
+        "sentence": "'\n'If we had no faults we should not take so much pleasure in noting those of others.'\n'Quarrels would not last long if the fault was only on one side.'\n'One cannot answer for his courage when he has never been in danger.'\n'A true friend is the greatest of all blessings, and the one that we take the least care of all to acquire.'",
+        "warm_vector": [
+          0.0,
+          0.015151515151515152,
+          0.0
+        ],
+        "cold_vector": [
+          0.015151515151515152,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "sentence": "Many scholars have suggested that he was being cynical, but I believe he was just telling the truth about human nature.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "I perceive in Rochefoucauld's Maxims a forerunner to Carl Jung's reflections on the 'shadow' side of human nature\u2014the archaic, primitive emotions that we don't like to see ourselves as possessing and driving our decisions.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "I digress.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "Back to the action in Venezuela.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "The U.S. is now hauling Nicolas Maduro back to New York to stand trial for various offenses.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "The Justice Department has cited the legal precedent of the Panamanian dictator, Manuel Noriega, who was seized by a U.S. military raid in 1990 and hauled back to Miami to stand trial for various charges.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "To President Trump's credit, he isn't indulging in too much humbug virtue-signaling about this military action.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "In his statements to the press, he has already mentioned that the U.S. will now be 'very strongly involved in Venezuela's oil industry.'",
+        "warm_vector": [
+          0.0,
+          0.045454545454545456,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "Apparently aware of the incongruity of taking out Maduro while leaving the (far more powerful) Mexican cartels intact on our own border, Trump said, 'something is gonna have to be done with Mexico.'",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "Rochefoucauld and Tocqueville would have doubtless remarked that the American people should do something about their own monstrous addiction to narcotics and stimulants before they self-righteously fulminate against the depravity of their suppliers.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "This is the moral and spiritual equivalent of a morbidly obese sugar addict railing about the depravity of Archer Daniels Midland and Cargill and demanding that their high fructose corn syrup refineries be bombed.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "Speaking of bombing refineries: A few days ago the New York Times published a report about the CIA's escalating involvement in helping Ukraine to target Russian oil refineries.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "Additionally, the US State Department re-issued an urgent advisory warning Americans not to travel to Russia.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "The renewed advisory instructs American citizens currently in Russia to depart immediately, citing the danger associated with the ongoing war with Ukraine.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.045454545454545456,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "sentence": "Back in Feb. 2022, when Russia launched its military operation against Ukraine, many Americans were appalled that Russia would violate the territorial sovereignty of its neighboring country, even though it has long been understood by anyone paying attention that the CIA had been meddling in Ukraine since 2005, and that NATO had been updating and preparing the Ukrainian army for war with Russian since 2014, when the CIA assisted in overthrowing Ukrainian President Viktor Yanukovych, who was in favor of good Ukrainian-Russian relations.",
+        "warm_vector": [
+          0.0125,
+          0.0,
+          1.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "Russian President Vladimir Putin has repeatedly stated\u2014most notably in his Feb. 6, 2024 interview with Tucker Carlson\u2014that Russia would like to have friendly and cooperative relations with the United States, but achieving this will require that the United States recognize the legitimate interests of the Russian people and state.",
+        "warm_vector": [
+          0.0,
+          0.020833333333333332,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "With last night's attacks on Venezuela, the Trump administration reasserted the full force of the Monroe Doctrine of 1823, in which President James Monroe stated in his annual address to Congress that the U.S. would not tolerate European meddling in the Western Hemisphere.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "The U.S. invoked the Monroe Doctrine when it supported the overthrow and execution of the French backed Emperor Maximilian of Mexico, even though he was a thoroughly decent and liberal minded man.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "To express my personal view of the matter: I agree with Rochefoucauld's view that war is always about a kingdom or nation trying to secure and extend its interests.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "He was extremely skeptical of all moral justifications for war.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "Great powers want to expand\u2014they want what other people have\u2014and they are therefore extremely suspicious when other great powers show up in their backyard.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "The U.S. sees Venezuela as a vital strategic asset with the largest proven oil reserves on earth.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "The U.S. government perceives Maduro's regime to be dysfunctional and ideologically misaligned with U.S. interests, and therefore wants to replace him with a U.S. puppet regime that will open the country and its vast mineral assets to exploit them in a strategic partnership with the U.S.",
+        "warm_vector": [
+          0.0,
+          0.023809523809523808,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "I suppose this is all fine and well, but to be completely fair and honest, how can the U.S. government reassert the Monroe Doctrine, claiming Western Hemispheric domination, while denying that Russia has legitimate security interests in a border region of ethnic Russians that starts 280 miles from Moscow?",
+        "warm_vector": [
+          0.0,
+          0.02127659574468085,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "When contemplating this, consider that Venezuela is 2000 miles from Miami and poses zero military threat to the United States.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.05263157894736842,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "sentence": "It seems to me that the Trump administration should stop applying such a crass and extreme double standard and immediately recognize Russia's legitimate security interests.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "sentence": "This means immediately ending CIA operations in Ukraine and terminating all support for the corrupt Zelensky regime.",
+        "warm_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cold_vector": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "subjects": [
+      "New",
+      "Yanukovych",
+      "Miami",
+      "Regime",
+      "Monroe",
+      "Ukraine",
+      "Feb.",
+      "Venezuela",
+      "One",
+      "United",
+      "James Monroe",
+      "Jung",
+      "Everyone",
+      "President James Monroe",
+      "Trump",
+      "Emperor",
+      "the Maxims of Fran\u00e7ois de La Rochefoucauld",
+      "James",
+      "Carl",
+      "American society",
+      "Western Hemispheric",
+      "Viktor",
+      "Maxims",
+      "Carl Jung's",
+      "Moscow",
+      "European meddling",
+      "The Justice Department",
+      "U.S. interests",
+      "Many scholars",
+      "Congress",
+      "Russian oil refineries",
+      "Maduro's regime",
+      "Quarrels",
+      "Venezuela's oil industry",
+      "Times",
+      "Maximilian",
+      "Archer Daniels Midland",
+      "State",
+      "Department",
+      "Vladimir Putin",
+      "President Nicholas Maduro",
+      "Alexis de Tocqueville",
+      "The Maxims",
+      "Mexico",
+      "Viktor Yanukovych",
+      "Tocqueville",
+      "The extreme pleasure",
+      "Russia",
+      "Zelensky",
+      "Revolution",
+      "Putin",
+      "President Trump's credit",
+      "We",
+      "President",
+      "Nicolas Maduro",
+      "American citizens",
+      "Maduro",
+      "Doctrine",
+      "The renewed advisory",
+      "This",
+      "Western Hemispheric domination",
+      "the United States",
+      "Noriega",
+      "New York",
+      "Great powers",
+      "Midland",
+      "CIA",
+      "Old",
+      "Justice",
+      "Nicolas",
+      "CIA operations",
+      "Rochefoucauld's Maxims",
+      "Tucker",
+      "Carl Jung's reflections",
+      "Tucker Carlson",
+      "Democracy",
+      "Alexis",
+      "Nicholas",
+      "The Trump administration",
+      "It",
+      "Nicholas Maduro",
+      "Rochefoucauld",
+      "Daniels",
+      "York",
+      "the New York Times",
+      "Archer",
+      "States",
+      "Russian",
+      "Vladimir",
+      "Manuel",
+      "Manuel Noriega",
+      "He",
+      "Fran\u00e7ois",
+      "the US State Department",
+      "Hemisphere",
+      "Western",
+      "Rochefoucauld's view",
+      "Carlson",
+      "Cargill",
+      "The U.S.",
+      "U.S.",
+      "The U.S. government",
+      "No people",
+      "America",
+      "The Old Regime",
+      "A true friend",
+      "I",
+      "NATO"
+    ],
+    "phen": [
+      "the legal precedent",
+      "Regime",
+      "Monroe",
+      "Ukraine",
+      "Feb.",
+      "Venezuela",
+      "United",
+      "emotions that we n't like to",
+      "my morning coffee",
+      "Jung",
+      "no faults",
+      "President James Monroe",
+      "the archaic, primitive emotions",
+      "noble ancestry",
+      "the news",
+      "his book",
+      "can not answer",
+      "extremely skeptical of moral justifications for",
+      "Viktor",
+      "Moscow",
+      "and no complains of his",
+      "such a crass and extreme double standard",
+      "shadow of human nature",
+      "other people",
+      "The Justice Department",
+      "refineries A days ago the",
+      "not last long the fault was",
+      "Venezuela's oil industry",
+      "various charges",
+      "contemplating this",
+      "the U.S. will be very",
+      "a reflection",
+      "his annual address",
+      "na have to done with Mexico",
+      "Archer Daniels Midland",
+      "We confess faults only to",
+      "our good deeds",
+      "the world",
+      "that the American should do something",
+      "Vladimir Putin",
+      "President Nicholas Maduro",
+      "the 'shadow' side",
+      "the American people",
+      "a U.S. military aircraft",
+      "Revolution",
+      "would like to friendly and cooperative",
+      "a U.S. military raid",
+      "a famous courtier",
+      "President",
+      "Maduro",
+      "that Russia would to have friendly",
+      "the legitimate interests",
+      "This",
+      "digress",
+      "a vital strategic asset",
+      "The U.S. is hauling Nicolas Maduro",
+      "New York",
+      "a kingdom",
+      "ethnic Russians",
+      "CIA",
+      "I suppose is all fine",
+      "our prison system",
+      "woke up",
+      "Tucker",
+      "his judgment",
+      "his memory",
+      "Democracy",
+      "the depravity",
+      "Nicholas",
+      "The Trump administration",
+      "'m confident he",
+      "Nicholas Maduro",
+      "the extreme malaise",
+      "Rochefoucauld",
+      "we may scarcely giving any to",
+      "York",
+      "often wonder what",
+      "States",
+      "Russian",
+      "a border region",
+      "the matter",
+      "confident he would hard pressed",
+      "but to completely fair and",
+      "One not answer for",
+      "America",
+      "The Old Regime",
+      "perceive in Rochefoucauld",
+      "this military action",
+      "allow themselves to wrong",
+      "the Trump administration",
+      "the full force",
+      "a report",
+      "corn syrup refineries bombed",
+      "a military operation",
+      "two volumes",
+      "means immediately ending",
+      "the corrupt Zelensky regime",
+      "ashamed of our deeds if people",
+      "Trump",
+      "and the that we take",
+      "friendly and cooperative relations",
+      "the Maxims of Fran\u00e7ois de La Rochefoucauld",
+      "against Ukraine Americans were appalled",
+      "our own border",
+      "since 2014 the CIA assisted",
+      "Western Hemispheric",
+      "the moral and spiritual equivalent",
+      "Feb. 2022 Russia launched its",
+      "U.S. interests",
+      "a great admirer",
+      "Many scholars",
+      "various offenses",
+      "the U.S. government",
+      "Maduro's regime",
+      "an urgent advisory warning Americans",
+      "their backyard",
+      "no one",
+      "zero military threat",
+      "indulging in too humbug virtue",
+      "our listeners",
+      "is gon na to be done",
+      "bombing refineries",
+      "the matter agree with Rochefoucauld",
+      "Department",
+      "many observations",
+      "therefore extremely suspicious other great powers",
+      "people should do about their own",
+      "No are more often",
+      "social and political philosophy",
+      "Ukraine and terminating support for the",
+      "Mexico",
+      "Viktor Yanukovych",
+      "legitimate security interests",
+      "The extreme pleasure",
+      "Zelensky",
+      "Many scholars suggested that he",
+      "their high fructose corn syrup refineries",
+      "American citizens",
+      "keen powers",
+      "the action",
+      "that last night",
+      "One can answer for his",
+      "the truth",
+      "'s regime to dysfunctional and ideologically",
+      "Justice",
+      "Nicolas",
+      "his statements",
+      "the far powerful Mexican",
+      "of the Russian and state",
+      "what Tocqueville would about America if",
+      "I woke up morning and saw",
+      "'ve long been",
+      "for his courage he has never",
+      "published in volumes in 1835",
+      "not take so pleasure in noting",
+      "n't like to ourselves as possessing",
+      "we had no",
+      "only on one",
+      "the New York Times",
+      "Archer",
+      "all blessings",
+      "Manuel Noriega",
+      "the US State Department",
+      "we do n't to see ourselves",
+      "Western",
+      "a U.S. puppet regime",
+      "Cargill",
+      "The U.S. government",
+      "a strategic partnership",
+      "my personal view",
+      "our good deeds people saw all",
+      "A true friend",
+      "woke up this",
+      "signaling about military action",
+      "the country",
+      "extremely suspicious when great powers show",
+      "New",
+      "last night's attacks",
+      "and Tocqueville would doubtless remarked that",
+      "honest how the U.S. government",
+      "One",
+      "backed Emperor Maximilian",
+      "political philosopher",
+      "James Monroe",
+      "my thoughts drifted to Venezuela",
+      "Great powers to expand",
+      "Carl",
+      "the 17th century",
+      "suppose this is",
+      "a gentleman",
+      "human nature",
+      "2024 interview",
+      "Congress",
+      "the following image",
+      "Russian oil refineries",
+      "deep philosophical insights",
+      "Quarrels",
+      "cynical but believe he was",
+      "the Russian people",
+      "American people should something about their",
+      "morning and saw news",
+      "280 miles",
+      "the extreme confidence",
+      "the CIA",
+      "Alexis de Tocqueville",
+      "The Maxims",
+      "the largest proven oil reserves",
+      "Russia",
+      "want what other have and",
+      "President Trump's credit",
+      "As drank my morning",
+      "Nicolas Maduro",
+      "The renewed advisory",
+      "the way",
+      "their leaders",
+      "leaving the more powerful",
+      "the detained man",
+      "a forerunner",
+      "advisory warning Americans to travel to",
+      "the United States",
+      "Noriega",
+      "those who will allow themselves to",
+      "my thoughts",
+      "the Ukrainian army",
+      "Midland",
+      "their own monstrous addiction",
+      "small faults",
+      "the Monroe Doctrine it supported the",
+      "the Maxims",
+      "launched military operation against",
+      "faults we should take so much",
+      "the French diplomat",
+      "the Monroe Doctrine",
+      "its interests",
+      "suppose this is fine and well",
+      "the greatest of blessings and",
+      "We would frequently ashamed of our",
+      "the Panamanian dictator",
+      "one side",
+      "Vladimir",
+      "Rochefoucauld's view",
+      "the territorial sovereignty",
+      "Carlson",
+      "what other people and they",
+      "No people",
+      "people that we no greater ones",
+      "so much pleasure",
+      "many Americans",
+      "our boundless capacity",
+      "NATO",
+      "they want what people have",
+      "their cities",
+      "a morbidly obese sugar addict",
+      "the U.S.",
+      "Yanukovych",
+      "all support",
+      "Miami",
+      "of the American and their cities",
+      "no greater ones",
+      "other great powers",
+      "the overthrow",
+      "if people saw the motives that",
+      "is the moral",
+      "A friend is the",
+      "Everyone",
+      "Emperor",
+      "the fault",
+      "James",
+      "all moral justifications",
+      "a thoroughly decent and liberal minded man",
+      "their suppliers",
+      "American society",
+      "Maxims",
+      "Carl Jung's",
+      "now be strongly involved in",
+      "the Western Hemisphere",
+      "When contemplating consider that",
+      "European meddling",
+      "self-serving conduct",
+      "its military operation",
+      "scholars have suggested",
+      "U.S. will now very strongly",
+      "Times",
+      "Maximilian",
+      "the Revolution",
+      "the ongoing war",
+      "State",
+      "was only on side",
+      "our decisions",
+      "good Ukrainian-Russian relations",
+      "his Feb.",
+      "only to convince that we have",
+      "Tocqueville",
+      "Putin",
+      "the misfortunes",
+      "and swiftly captured President Nicholas",
+      "his courage",
+      "Doctrine",
+      "all the motives",
+      "the U.S. would tolerate European meddling",
+      "Western Hemispheric domination",
+      "the press",
+      "but achieving will require that",
+      "Great powers",
+      "Old",
+      "its vast mineral assets",
+      "he made observations of American",
+      "the CIA's escalating involvement",
+      "CIA operations",
+      "its neighboring country",
+      "Rochefoucauld's Maxims",
+      "expand they what other people",
+      "Carl Jung's reflections",
+      "Tucker Carlson",
+      "my favorites",
+      "Alexis",
+      "No people are often wrong than",
+      "The following are of my favorites",
+      "said is gon na",
+      "the danger",
+      "least care of to acquire",
+      "Daniels",
+      "the incongruity",
+      "Manuel",
+      "think about America he travelled the",
+      "Fran\u00e7ois",
+      "Hemisphere",
+      "The U.S.",
+      "U.S.",
+      "in favor of Ukrainian Russian",
+      "good deeds if saw all the",
+      "Quarrels would last long if",
+      "narcotics and stimulants they self",
+      "the end"
+    ],
+    "wiki_blues": [
+      "the legal precedent",
+      "Regime",
+      "Monroe",
+      "Ukraine",
+      "Feb.",
+      "Venezuela",
+      "United",
+      "my morning coffee",
+      "Jung",
+      "no faults",
+      "President James Monroe",
+      "the archaic, primitive emotions",
+      "noble ancestry",
+      "the news",
+      "his book",
+      "can not answer",
+      "extremely skeptical of moral justifications for",
+      "Viktor",
+      "Moscow",
+      "and no complains of his"
+    ],
+    "wiki": [
+      {
+        "wiki_search_content": "the legal precedent",
+        "wiki_url": "https://en.wikipedia.org/wiki/the_legal_precedent",
+        "wiki_summary": ""
+      },
+      {
+        "wiki_search_content": "Regime",
+        "wiki_url": "https://en.wikipedia.org/wiki/Regime",
+        "wiki_summary": "A regiment is a military unit. Its role and size varies markedly, depending on the country, service, or specialisation."
+      },
+      {
+        "wiki_search_content": "Monroe",
+        "wiki_url": "https://en.wikipedia.org/wiki/Monroe",
+        "wiki_summary": ""
+      },
+      {
+        "wiki_search_content": "Ukraine",
+        "wiki_url": "https://en.wikipedia.org/wiki/Ukraine",
+        "wiki_summary": "Ukraine is a country in Eastern Europe. It is the second-largest country in Europe after Russia, which borders it to the east and northeast."
+      },
+      {
+        "wiki_search_content": "Feb.",
+        "wiki_url": "https://en.wikipedia.org/wiki/February",
+        "wiki_summary": "February is the second month of the year in the Julian and Gregorian calendars. The month has 28 days in common years and 29 in leap years, with the 29th day being called the leap day."
+      },
+      {
+        "wiki_search_content": "Venezuela",
+        "wiki_url": "https://en.wikipedia.org/wiki/Venezuela",
+        "wiki_summary": "Venezuela, officially the Bolivarian Republic of Venezuela, is a country on the northern coast of South America, consisting of a continental landmass and many islands and islets in the Caribbean Sea. It comprises an area of 912,050 km2 (352,140 sq mi), with a population estimated at 31.3 million in 2024."
+      },
+      {
+        "wiki_search_content": "United",
+        "wiki_url": "https://en.wikipedia.org/wiki/United",
+        "wiki_summary": ""
+      },
+      {
+        "wiki_search_content": "my morning coffee",
+        "wiki_url": "https://en.wikipedia.org/wiki/Watermelon_Sugar",
+        "wiki_summary": "\"Watermelon Sugar\" is a song by English singer-songwriter Harry Styles from his second studio album Fine Line (2019), included as the album's second track. Styles wrote the song with Mitch Rowland and the song's producers, Tyler Johnson and Kid Harpoon."
+      },
+      {
+        "wiki_search_content": "Jung",
+        "wiki_url": "https://en.wikipedia.org/wiki/Jung",
+        "wiki_summary": ""
+      },
+      {
+        "wiki_search_content": "no faults",
+        "wiki_url": "https://en.wikipedia.org/wiki/Fault_(geology)",
+        "wiki_summary": "In geology, a fault is a planar fracture or discontinuity in a volume of rock across which there has been significant displacement as a result of rock-mass movements. Large faults within Earth's crust result from the action of plate tectonic forces, with the largest forming the boundaries between the plates, such as the megathrust faults of subduction zones or transform faults."
+      }
+    ]
+  }
+}

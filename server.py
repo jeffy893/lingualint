@@ -45,9 +45,9 @@ mcp = FastMCP("LinguaLint Event Code Extractor")
 # Global processor instance
 processor = ModernNLPProcessor()
 
-# Output directory for reports
-REPORTS_DIR = Path("./reports")
-REPORTS_DIR.mkdir(exist_ok=True)
+# Output directory for analysis
+ANALYSIS_BASE_DIR = Path("./lingualint_analysis")
+ANALYSIS_BASE_DIR.mkdir(exist_ok=True)
 
 @mcp.tool()
 def extract_risk_factors(text_content: str) -> str:
@@ -70,8 +70,13 @@ def extract_risk_factors(text_content: str) -> str:
         
         # Generate unique filename
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        json_file = REPORTS_DIR / f"extraction_{timestamp}.json"
-        html_file = REPORTS_DIR / f"report_{timestamp}.html"
+        
+        # Create timestamped analysis folder
+        analysis_dir = ANALYSIS_BASE_DIR / f"analysis_{timestamp}"
+        analysis_dir.mkdir(exist_ok=True)
+        
+        json_file = analysis_dir / f"extraction_{timestamp}.json"
+        html_file = analysis_dir / f"report_{timestamp}.html"
         
         # Save JSON results
         with open(json_file, 'w', encoding='utf-8') as f:
@@ -107,8 +112,7 @@ def extract_risk_factors(text_content: str) -> str:
         # Generate Comprehensive PDF
         pdf_summary = ""
         try:
-            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            pdf_file = generate_comprehensive_pdf(timestamp, REPORTS_DIR)
+            pdf_file = generate_comprehensive_pdf(timestamp, analysis_dir)
             
             if pdf_file:
                 pdf_summary = f"\n- Comprehensive PDF: GENERATED ({pdf_file.name})"

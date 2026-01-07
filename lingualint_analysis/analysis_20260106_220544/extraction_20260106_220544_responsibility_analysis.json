@@ -1,0 +1,1951 @@
+{
+  "timestamp": "2026-01-06T22:05:44.630489",
+  "total_entities": 108,
+  "total_events": 43,
+  "entity_assessments": [
+    {
+      "entity": "Yanukovych",
+      "mentions": 1,
+      "intention_score": 20.5,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 205.0,
+      "risk_level": "Very Low",
+      "avg_warm_vector": [
+        0.013,
+        0.0,
+        1.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Viktor",
+      "mentions": 1,
+      "intention_score": 20.5,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 205.0,
+      "risk_level": "Very Low",
+      "avg_warm_vector": [
+        0.013,
+        0.0,
+        1.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Viktor Yanukovych",
+      "mentions": 1,
+      "intention_score": 20.5,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 205.0,
+      "risk_level": "Very Low",
+      "avg_warm_vector": [
+        0.013,
+        0.0,
+        1.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "NATO",
+      "mentions": 1,
+      "intention_score": 20.5,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 205.0,
+      "risk_level": "Very Low",
+      "avg_warm_vector": [
+        0.013,
+        0.0,
+        1.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Feb.",
+      "mentions": 2,
+      "intention_score": 10.667,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 106.667,
+      "risk_level": "Very Low",
+      "avg_warm_vector": [
+        0.006,
+        0.01,
+        0.5
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Russian",
+      "mentions": 4,
+      "intention_score": 5.546,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 55.461,
+      "risk_level": "Very Low",
+      "avg_warm_vector": [
+        0.003,
+        0.011,
+        0.25
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Everyone",
+      "mentions": 1,
+      "intention_score": 21.739,
+      "negligence_score": 0.435,
+      "responsibility_ratio": 50.0,
+      "risk_level": "Very Low",
+      "avg_warm_vector": [
+        0.014,
+        0.029,
+        1.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.014,
+        0.0
+      ]
+    },
+    {
+      "entity": "The extreme pleasure",
+      "mentions": 1,
+      "intention_score": 21.739,
+      "negligence_score": 0.435,
+      "responsibility_ratio": 50.0,
+      "risk_level": "Very Low",
+      "avg_warm_vector": [
+        0.014,
+        0.029,
+        1.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.014,
+        0.0
+      ]
+    },
+    {
+      "entity": "No people",
+      "mentions": 1,
+      "intention_score": 21.739,
+      "negligence_score": 0.435,
+      "responsibility_ratio": 50.0,
+      "risk_level": "Very Low",
+      "avg_warm_vector": [
+        0.014,
+        0.029,
+        1.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.014,
+        0.0
+      ]
+    },
+    {
+      "entity": "President",
+      "mentions": 5,
+      "intention_score": 4.267,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 42.667,
+      "risk_level": "Very Low",
+      "avg_warm_vector": [
+        0.003,
+        0.004,
+        0.2
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Venezuela's oil industry",
+      "mentions": 1,
+      "intention_score": 1.818,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 18.182,
+      "risk_level": "Very Low",
+      "avg_warm_vector": [
+        0.0,
+        0.045,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "U.S. interests",
+      "mentions": 1,
+      "intention_score": 0.952,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 9.524,
+      "risk_level": "Low",
+      "avg_warm_vector": [
+        0.0,
+        0.024,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Maduro's regime",
+      "mentions": 1,
+      "intention_score": 0.952,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 9.524,
+      "risk_level": "Low",
+      "avg_warm_vector": [
+        0.0,
+        0.024,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "The U.S. government",
+      "mentions": 2,
+      "intention_score": 0.902,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 9.017,
+      "risk_level": "Low",
+      "avg_warm_vector": [
+        0.0,
+        0.023,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Western Hemispheric",
+      "mentions": 1,
+      "intention_score": 0.851,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 8.511,
+      "risk_level": "Low",
+      "avg_warm_vector": [
+        0.0,
+        0.021,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Moscow",
+      "mentions": 1,
+      "intention_score": 0.851,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 8.511,
+      "risk_level": "Low",
+      "avg_warm_vector": [
+        0.0,
+        0.021,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Western Hemispheric domination",
+      "mentions": 1,
+      "intention_score": 0.851,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 8.511,
+      "risk_level": "Low",
+      "avg_warm_vector": [
+        0.0,
+        0.021,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Vladimir Putin",
+      "mentions": 1,
+      "intention_score": 0.833,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 8.333,
+      "risk_level": "Low",
+      "avg_warm_vector": [
+        0.0,
+        0.021,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Putin",
+      "mentions": 1,
+      "intention_score": 0.833,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 8.333,
+      "risk_level": "Low",
+      "avg_warm_vector": [
+        0.0,
+        0.021,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Tucker",
+      "mentions": 1,
+      "intention_score": 0.833,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 8.333,
+      "risk_level": "Low",
+      "avg_warm_vector": [
+        0.0,
+        0.021,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Tucker Carlson",
+      "mentions": 1,
+      "intention_score": 0.833,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 8.333,
+      "risk_level": "Low",
+      "avg_warm_vector": [
+        0.0,
+        0.021,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Vladimir",
+      "mentions": 1,
+      "intention_score": 0.833,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 8.333,
+      "risk_level": "Low",
+      "avg_warm_vector": [
+        0.0,
+        0.021,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Carlson",
+      "mentions": 1,
+      "intention_score": 0.833,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 8.333,
+      "risk_level": "Low",
+      "avg_warm_vector": [
+        0.0,
+        0.021,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "The U.S.",
+      "mentions": 8,
+      "intention_score": 0.453,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 4.527,
+      "risk_level": "Moderate",
+      "avg_warm_vector": [
+        0.0,
+        0.011,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Western",
+      "mentions": 2,
+      "intention_score": 0.426,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 4.255,
+      "risk_level": "Moderate",
+      "avg_warm_vector": [
+        0.0,
+        0.011,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Carl",
+      "mentions": 2,
+      "intention_score": 0.417,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 4.167,
+      "risk_level": "Moderate",
+      "avg_warm_vector": [
+        0.0,
+        0.01,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "U.S.",
+      "mentions": 10,
+      "intention_score": 0.362,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 3.622,
+      "risk_level": "Moderate",
+      "avg_warm_vector": [
+        0.0,
+        0.009,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Regime",
+      "mentions": 3,
+      "intention_score": 0.317,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 3.175,
+      "risk_level": "Moderate",
+      "avg_warm_vector": [
+        0.0,
+        0.008,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Monroe",
+      "mentions": 3,
+      "intention_score": 0.284,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 2.837,
+      "risk_level": "Moderate",
+      "avg_warm_vector": [
+        0.0,
+        0.007,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Doctrine",
+      "mentions": 3,
+      "intention_score": 0.284,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 2.837,
+      "risk_level": "Moderate",
+      "avg_warm_vector": [
+        0.0,
+        0.007,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Maduro",
+      "mentions": 4,
+      "intention_score": 0.238,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 2.381,
+      "risk_level": "Moderate",
+      "avg_warm_vector": [
+        0.0,
+        0.006,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "One",
+      "mentions": 7,
+      "intention_score": 6.502,
+      "negligence_score": 3.027,
+      "responsibility_ratio": 2.148,
+      "risk_level": "Moderate",
+      "avg_warm_vector": [
+        0.004,
+        0.016,
+        0.286
+      ],
+      "avg_cold_vector": [
+        0.002,
+        0.002,
+        0.143
+      ]
+    },
+    {
+      "entity": "We",
+      "mentions": 13,
+      "intention_score": 5.207,
+      "negligence_score": 3.343,
+      "responsibility_ratio": 1.557,
+      "risk_level": "High",
+      "avg_warm_vector": [
+        0.01,
+        0.005,
+        0.231
+      ],
+      "avg_cold_vector": [
+        0.005,
+        0.001,
+        0.154
+      ]
+    },
+    {
+      "entity": "He",
+      "mentions": 40,
+      "intention_score": 1.783,
+      "negligence_score": 1.652,
+      "responsibility_ratio": 1.079,
+      "risk_level": "High",
+      "avg_warm_vector": [
+        0.003,
+        0.004,
+        0.075
+      ],
+      "avg_cold_vector": [
+        0.003,
+        0.0,
+        0.075
+      ]
+    },
+    {
+      "entity": "I",
+      "mentions": 43,
+      "intention_score": 1.658,
+      "negligence_score": 1.537,
+      "responsibility_ratio": 1.079,
+      "risk_level": "High",
+      "avg_warm_vector": [
+        0.003,
+        0.004,
+        0.07
+      ],
+      "avg_cold_vector": [
+        0.003,
+        0.0,
+        0.07
+      ]
+    },
+    {
+      "entity": "James Monroe",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Jung",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "President James Monroe",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Trump",
+      "mentions": 5,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Emperor",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "the Maxims of Fran\u00e7ois de La Rochefoucauld",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "James",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "American society",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Maxims",
+      "mentions": 3,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Carl Jung's",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "European meddling",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "The Justice Department",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Many scholars",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Congress",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Russian oil refineries",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Times",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Maximilian",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Archer Daniels Midland",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Department",
+      "mentions": 2,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "President Nicholas Maduro",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Alexis de Tocqueville",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "The Maxims",
+      "mentions": 2,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Mexico",
+      "mentions": 2,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Tocqueville",
+      "mentions": 4,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Zelensky",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Revolution",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "President Trump's credit",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Nicolas Maduro",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Noriega",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "New York",
+      "mentions": 2,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Great powers",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Midland",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Old",
+      "mentions": 2,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Justice",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Nicolas",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "CIA operations",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Rochefoucauld's Maxims",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Carl Jung's reflections",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Democracy",
+      "mentions": 2,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Alexis",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Nicholas",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "The Trump administration",
+      "mentions": 3,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Nicholas Maduro",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Rochefoucauld",
+      "mentions": 4,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Daniels",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "York",
+      "mentions": 2,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "the New York Times",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Archer",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Manuel",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Manuel Noriega",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Fran\u00e7ois",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "the US State Department",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Hemisphere",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Rochefoucauld's view",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Cargill",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "The Old Regime",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 0.1,
+      "responsibility_ratio": 1.0,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "entity": "Russia",
+      "mentions": 7,
+      "intention_score": 3.169,
+      "negligence_score": 3.182,
+      "responsibility_ratio": 0.996,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.002,
+        0.006,
+        0.143
+      ],
+      "avg_cold_vector": [
+        0.006,
+        0.0,
+        0.143
+      ]
+    },
+    {
+      "entity": "Ukraine",
+      "mentions": 4,
+      "intention_score": 5.125,
+      "negligence_score": 5.568,
+      "responsibility_ratio": 0.92,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.003,
+        0.0,
+        0.25
+      ],
+      "avg_cold_vector": [
+        0.011,
+        0.0,
+        0.25
+      ]
+    },
+    {
+      "entity": "CIA",
+      "mentions": 5,
+      "intention_score": 4.1,
+      "negligence_score": 4.455,
+      "responsibility_ratio": 0.92,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.003,
+        0.0,
+        0.2
+      ],
+      "avg_cold_vector": [
+        0.009,
+        0.0,
+        0.2
+      ]
+    },
+    {
+      "entity": "America",
+      "mentions": 9,
+      "intention_score": 2.278,
+      "negligence_score": 2.475,
+      "responsibility_ratio": 0.92,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.001,
+        0.0,
+        0.111
+      ],
+      "avg_cold_vector": [
+        0.005,
+        0.0,
+        0.111
+      ]
+    },
+    {
+      "entity": "It",
+      "mentions": 27,
+      "intention_score": 0.857,
+      "negligence_score": 1.663,
+      "responsibility_ratio": 0.515,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.002,
+        0.037
+      ],
+      "avg_cold_vector": [
+        0.004,
+        0.0,
+        0.074
+      ]
+    },
+    {
+      "entity": "State",
+      "mentions": 6,
+      "intention_score": 0.442,
+      "negligence_score": 3.772,
+      "responsibility_ratio": 0.117,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.011,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.009,
+        0.0,
+        0.167
+      ]
+    },
+    {
+      "entity": "Venezuela",
+      "mentions": 7,
+      "intention_score": 0.26,
+      "negligence_score": 3.233,
+      "responsibility_ratio": 0.08,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.006,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.008,
+        0.0,
+        0.143
+      ]
+    },
+    {
+      "entity": "This",
+      "mentions": 7,
+      "intention_score": 0.241,
+      "negligence_score": 3.233,
+      "responsibility_ratio": 0.074,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.006,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.008,
+        0.0,
+        0.143
+      ]
+    },
+    {
+      "entity": "United",
+      "mentions": 3,
+      "intention_score": 0.278,
+      "negligence_score": 7.544,
+      "responsibility_ratio": 0.037,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.007,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.018,
+        0.0,
+        0.333
+      ]
+    },
+    {
+      "entity": "the United States",
+      "mentions": 3,
+      "intention_score": 0.278,
+      "negligence_score": 7.544,
+      "responsibility_ratio": 0.037,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.007,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.018,
+        0.0,
+        0.333
+      ]
+    },
+    {
+      "entity": "States",
+      "mentions": 3,
+      "intention_score": 0.278,
+      "negligence_score": 7.544,
+      "responsibility_ratio": 0.037,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.007,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.018,
+        0.0,
+        0.333
+      ]
+    },
+    {
+      "entity": "Quarrels",
+      "mentions": 1,
+      "intention_score": 0.606,
+      "negligence_score": 20.758,
+      "responsibility_ratio": 0.029,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.015,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.015,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "entity": "A true friend",
+      "mentions": 1,
+      "intention_score": 0.606,
+      "negligence_score": 20.758,
+      "responsibility_ratio": 0.029,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.015,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.015,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "entity": "New",
+      "mentions": 4,
+      "intention_score": 0.1,
+      "negligence_score": 5.568,
+      "responsibility_ratio": 0.018,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.011,
+        0.0,
+        0.25
+      ]
+    },
+    {
+      "entity": "Miami",
+      "mentions": 2,
+      "intention_score": 0.1,
+      "negligence_score": 11.316,
+      "responsibility_ratio": 0.009,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.026,
+        0.0,
+        0.5
+      ]
+    },
+    {
+      "entity": "American citizens",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 22.273,
+      "responsibility_ratio": 0.004,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.045,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "entity": "The renewed advisory",
+      "mentions": 1,
+      "intention_score": 0.1,
+      "negligence_score": 22.273,
+      "responsibility_ratio": 0.004,
+      "risk_level": "Very High",
+      "avg_warm_vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "avg_cold_vector": [
+        0.045,
+        0.0,
+        1.0
+      ]
+    }
+  ]
+}

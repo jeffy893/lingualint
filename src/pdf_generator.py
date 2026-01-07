@@ -340,6 +340,46 @@ class LinguaLintPDFGenerator:
             letter-spacing: 0.5px;
         }}
         
+        /* Grid sections for Core Subjects, Phenomena, Wikipedia - make PDF friendly */
+        .data-tables div[style*="display: grid"] {{
+            display: block !important;
+            margin: 0.25in 0;
+        }}
+        
+        .data-tables div[style*="display: grid"] > div {{
+            display: inline-block;
+            width: 30%;
+            margin: 0.1in 1%;
+            padding: 0.15in;
+            border-radius: 4px;
+            vertical-align: top;
+            box-sizing: border-box;
+            font-size: 0.9em;
+        }}
+        
+        /* PDF grid container for converted grid sections */
+        .pdf-grid-container {{
+            display: block !important;
+            margin: 0.25in 0;
+        }}
+        
+        .pdf-grid-container > div {{
+            display: inline-block;
+            width: 30%;
+            margin: 0.1in 1%;
+            padding: 0.15in;
+            border-radius: 4px;
+            vertical-align: top;
+            box-sizing: border-box;
+            font-size: 0.9em;
+            page-break-inside: avoid;
+        }}
+        
+        /* Ensure grid items don't break across pages */
+        .data-tables div[style*="display: grid"] > div {{
+            page-break-inside: avoid;
+        }}
+        
         /* Risk badges */
         .risk-badge {{
             padding: 3px 8px;
@@ -540,6 +580,13 @@ class LinguaLintPDFGenerator:
         body_content = re.sub(
             r'<div[^>]*class="stats-grid"[^>]*>',
             '<div class="stats-grid">',
+            body_content
+        )
+        
+        # Fix CSS grid sections for PDF (Core Subjects, Phenomena, Wikipedia)
+        body_content = re.sub(
+            r'<div style="display: grid; grid-template-columns: repeat\(auto-fill, minmax\(200px, 1fr\)\); gap: 10px; margin: 20px 0;">',
+            '<div class="pdf-grid-container">',
             body_content
         )
         

@@ -1,0 +1,988 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinguaLint Comprehensive Analysis Report - 20260106_220544</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0.75in;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            margin: 0;
+            padding: 0;
+            background: white;
+            color: #333;
+            font-size: 11pt;
+        }
+        
+        .cover-page {
+            text-align: center;
+            padding: 2in 0.5in;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin-bottom: 0.5in;
+            border-radius: 8px;
+            page-break-after: always;
+        }
+        
+        .cover-page h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5in;
+            font-weight: 300;
+        }
+        
+        .cover-page .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 0.5in;
+        }
+        
+        .cover-page .timestamp {
+            font-size: 1em;
+            opacity: 0.8;
+        }
+        
+        .section-divider {
+            page-break-before: always;
+            margin: 0.5in 0;
+            text-align: center;
+            padding: 0.5in;
+            background: #f8f9fa;
+            border-radius: 8px;
+            page-break-after: avoid;
+        }
+        
+        .section-divider h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 0;
+        }
+        
+        .report-section {
+            margin-bottom: 0.5in;
+            page-break-inside: avoid;
+        }
+        
+        .toc {
+            background: #f8f9fa;
+            padding: 0.5in;
+            border-radius: 8px;
+            margin: 0.5in 0;
+            page-break-after: always;
+        }
+        
+        .toc h2 {
+            color: #2c3e50;
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+        
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .toc li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .toc a {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 1em;
+        }
+        
+        /* Image sizing for PDF */
+        img {
+            max-width: 100% !important;
+            height: auto !important;
+            display: block;
+            margin: 0.25in auto;
+            page-break-inside: avoid;
+        }
+        
+        /* Visualization containers */
+        .visualization {
+            text-align: center;
+            margin: 0.25in 0;
+            padding: 0.25in;
+            background: #f8f9fa;
+            border-radius: 8px;
+            page-break-inside: avoid;
+        }
+        
+        .visualization img {
+            max-width: 95% !important;
+            max-height: 6in !important;
+            width: auto !important;
+            height: auto !important;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.25in 0;
+            font-size: 9pt;
+            page-break-inside: avoid;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 6px;
+            text-align: left;
+            word-wrap: break-word;
+        }
+        
+        th {
+            background: #f2f2f2;
+            font-weight: bold;
+        }
+        
+        /* Headers */
+        h1 { font-size: 1.8em; margin: 0.5in 0 0.25in 0; page-break-after: avoid; }
+        h2 { font-size: 1.5em; margin: 0.4in 0 0.2in 0; page-break-after: avoid; }
+        h3 { font-size: 1.3em; margin: 0.3in 0 0.15in 0; page-break-after: avoid; }
+        h4 { font-size: 1.1em; margin: 0.25in 0 0.1in 0; page-break-after: avoid; }
+        
+        /* Paragraphs */
+        p {
+            margin: 0.15in 0;
+            text-align: justify;
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin: 0.15in 0;
+            padding-left: 0.5in;
+        }
+        
+        li {
+            margin: 0.05in 0;
+        }
+        
+        /* Stats grid - make it PDF friendly */
+        .stats-grid {
+            display: block !important;
+            margin: 0.25in 0;
+        }
+        
+        .stat-card {
+            display: inline-block;
+            width: 30%;
+            margin: 0.1in 1%;
+            padding: 0.15in;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: center;
+            vertical-align: top;
+        }
+        
+        .stat-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.05in;
+        }
+        
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Grid sections for Core Subjects, Phenomena, Wikipedia - make PDF friendly */
+        .data-tables div[style*="display: grid"] {
+            display: block !important;
+            margin: 0.25in 0;
+        }
+        
+        .data-tables div[style*="display: grid"] > div {
+            display: inline-block;
+            width: 30%;
+            margin: 0.1in 1%;
+            padding: 0.15in;
+            border-radius: 4px;
+            vertical-align: top;
+            box-sizing: border-box;
+            font-size: 0.9em;
+        }
+        
+        /* PDF grid container for converted grid sections */
+        .pdf-grid-container {
+            display: block !important;
+            margin: 0.25in 0;
+        }
+        
+        .pdf-grid-container > div {
+            display: inline-block;
+            width: 30%;
+            margin: 0.1in 1%;
+            padding: 0.15in;
+            border-radius: 4px;
+            vertical-align: top;
+            box-sizing: border-box;
+            font-size: 0.9em;
+            page-break-inside: avoid;
+        }
+        
+        /* Ensure grid items don't break across pages */
+        .data-tables div[style*="display: grid"] > div {
+            page-break-inside: avoid;
+        }
+        
+        /* Risk badges */
+        .risk-badge {
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .risk-very-low { background: #2ecc71; color: white; }
+        .risk-low { background: #27ae60; color: white; }
+        .risk-moderate { background: #f39c12; color: white; }
+        .risk-high { background: #e74c3c; color: white; }
+        .risk-very-high { background: #c0392b; color: white; }
+        
+        /* Entity table - make it more compact for PDF */
+        .entity-table {
+            font-size: 8pt;
+            margin: 0.25in 0;
+        }
+        
+        .entity-table th {
+            background: #34495e;
+            color: white;
+            padding: 8px 4px;
+            font-size: 8pt;
+        }
+        
+        .entity-table td {
+            padding: 6px 4px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        /* Methodology section */
+        .methodology {
+            background: #ecf0f1;
+            padding: 0.25in;
+            border-radius: 8px;
+            margin: 0.25in 0;
+            page-break-inside: avoid;
+        }
+        
+        .methodology h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        .methodology ul {
+            margin: 0.1in 0;
+        }
+        
+        /* Force page breaks */
+        .page-break {
+            page-break-before: always;
+        }
+        
+        /* Avoid page breaks */
+        .no-break {
+            page-break-inside: avoid;
+        }
+        
+        /* Hide interactive elements in PDF */
+        script, .interactive-only {
+            display: none !important;
+        }
+        
+        /* Ensure content fits in margins */
+        .container {
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* D3.js visualization containers - make them PDF friendly */
+        #visualization, .d3-container {
+            display: none !important;
+        }
+        
+        /* Replace D3 with static message */
+        .d3-replacement {
+            text-align: center;
+            padding: 0.5in;
+            background: #f8f9fa;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            margin: 0.25in 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cover Page -->
+    <div class="cover-page">
+        <h1>LinguaLint</h1>
+        <div class="subtitle">Comprehensive Analysis Report</div>
+        <div class="timestamp">Generated: January 06, 2026 at 10:05 PM</div>
+        <div class="timestamp">Analysis ID: 20260106_220544</div>
+    </div>
+    
+    <!-- Table of Contents -->
+    <div class="toc">
+        <h2>📋 Table of Contents</h2>
+        <ul>
+            <li><a href="#main-analysis">1. Main Event Code Analysis</a></li>
+            <li><a href="#responsibility-analysis">2. Responsibility Futures Analysis</a></li>
+            <li><a href="#project-management">3. Project Management & Timeline</a></li>
+            <li><a href="#appendix">4. Appendix - Raw Data & Assets</a></li>
+        </ul>
+    </div>
+    
+    <!-- Main Analysis Section -->
+    <div class="section-divider" id="main-analysis">
+        <h2>📊 Main Event Code Analysis</h2>
+    </div>
+    
+    <div class="report-section">
+        
+    <div class="header">
+        <h1>LinguaLint Analysis Report</h1>
+        <a href="https://lingualint.com" target="_blank">LinguaLint Website</a>
+        <a href="https://riskrunners.com" target="_blank">Public Company Risk Factors</a>
+        <a href="https://jefferson.cloud" target="_blank">Jefferson.Cloud</a>
+        <a href="https://richards.systems" target="_blank">Richards.Systems</a>
+        <a href="https://richards.plus" target="_blank">Richards.Plus</a>
+    </div>
+
+    <div class="d3-replacement"><p><strong>Interactive D3.js Visualization</strong><br/>This section contains an interactive network graph that is available in the HTML version of this report.</p></div>
+    
+    <div class="data-tables">
+        <h2>Core Subjects (Capitalized Entities)</h2>
+        <div class="pdf-grid-container">
+            <div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">New</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Yanukovych</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Miami</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Regime</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Monroe</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Ukraine</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Feb.</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Venezuela</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">One</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">United</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">James Monroe</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Jung</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Everyone</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">President James Monroe</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Trump</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Emperor</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">the Maxims of François de La Rochefoucauld</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">James</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Carl</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">American society</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Western Hemispheric</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Viktor</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Maxims</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Carl Jung's</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Moscow</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">European meddling</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">The Justice Department</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">U.S. interests</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Many scholars</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Congress</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Russian oil refineries</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Maduro's regime</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Quarrels</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Venezuela's oil industry</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Times</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Maximilian</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Archer Daniels Midland</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">State</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Department</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Vladimir Putin</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">President Nicholas Maduro</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Alexis de Tocqueville</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">The Maxims</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Mexico</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Viktor Yanukovych</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Tocqueville</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">The extreme pleasure</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Russia</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Zelensky</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Revolution</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Putin</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">President Trump's credit</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">We</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">President</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Nicolas Maduro</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">American citizens</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Maduro</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Doctrine</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">The renewed advisory</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">This</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Western Hemispheric domination</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">the United States</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Noriega</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">New York</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Great powers</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Midland</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">CIA</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Old</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Justice</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Nicolas</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">CIA operations</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Rochefoucauld's Maxims</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Tucker</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Carl Jung's reflections</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Tucker Carlson</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Democracy</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Alexis</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Nicholas</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">The Trump administration</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">It</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Nicholas Maduro</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Rochefoucauld</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Daniels</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">York</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">the New York Times</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Archer</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">States</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Russian</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Vladimir</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Manuel</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Manuel Noriega</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">He</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">François</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">the US State Department</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Hemisphere</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Western</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Rochefoucauld's view</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Carlson</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">Cargill</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">The U.S.</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">U.S.</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">The U.S. government</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">No people</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">America</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">The Old Regime</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">A true friend</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">I</span></div><div style="background: #e6f3ff; padding: 8px; border-radius: 4px; border-left: 3px solid #0066cc;"><span class="phenomenon">NATO</span></div>
+        </div>
+        
+        <h2>Phenomena (Non-capitalized Concepts)</h2>
+        <div class="pdf-grid-container">
+            <div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the legal precedent</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Regime</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Monroe</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Ukraine</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Feb.</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Venezuela</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>United</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>emotions that we n't like to</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>my morning coffee</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Jung</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>no faults</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>President James Monroe</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the archaic, primitive emotions</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>noble ancestry</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the news</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>his book</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>can not answer</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>extremely skeptical of moral justifications for</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Viktor</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Moscow</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>and no complains of his</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>such a crass and extreme double standard</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>shadow of human nature</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>other people</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>The Justice Department</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>refineries A days ago the</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>not last long the fault was</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Venezuela's oil industry</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>various charges</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>contemplating this</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the U.S. will be very</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a reflection</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>his annual address</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>na have to done with Mexico</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Archer Daniels Midland</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>We confess faults only to</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>our good deeds</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the world</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>that the American should do something</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Vladimir Putin</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>President Nicholas Maduro</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the 'shadow' side</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the American people</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a U.S. military aircraft</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Revolution</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>would like to friendly and cooperative</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a U.S. military raid</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a famous courtier</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>President</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Maduro</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>that Russia would to have friendly</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the legitimate interests</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>This</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>digress</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a vital strategic asset</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>The U.S. is hauling Nicolas Maduro</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>New York</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a kingdom</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>ethnic Russians</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>CIA</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>I suppose is all fine</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>our prison system</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>woke up</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Tucker</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>his judgment</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>his memory</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Democracy</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the depravity</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Nicholas</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>The Trump administration</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>'m confident he</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Nicholas Maduro</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the extreme malaise</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Rochefoucauld</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>we may scarcely giving any to</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>York</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>often wonder what</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>States</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Russian</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a border region</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the matter</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>confident he would hard pressed</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>but to completely fair and</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>One not answer for</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>America</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>The Old Regime</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>perceive in Rochefoucauld</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>this military action</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>allow themselves to wrong</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the Trump administration</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the full force</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a report</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>corn syrup refineries bombed</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a military operation</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>two volumes</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>means immediately ending</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the corrupt Zelensky regime</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>ashamed of our deeds if people</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Trump</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>and the that we take</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>friendly and cooperative relations</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the Maxims of François de La Rochefoucauld</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>against Ukraine Americans were appalled</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>our own border</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>since 2014 the CIA assisted</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Western Hemispheric</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the moral and spiritual equivalent</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Feb. 2022 Russia launched its</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>U.S. interests</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a great admirer</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Many scholars</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>various offenses</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the U.S. government</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Maduro's regime</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>an urgent advisory warning Americans</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>their backyard</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>no one</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>zero military threat</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>indulging in too humbug virtue</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>our listeners</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>is gon na to be done</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>bombing refineries</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the matter agree with Rochefoucauld</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Department</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>many observations</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>therefore extremely suspicious other great powers</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>people should do about their own</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>No are more often</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>social and political philosophy</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Ukraine and terminating support for the</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Mexico</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Viktor Yanukovych</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>legitimate security interests</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>The extreme pleasure</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Zelensky</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Many scholars suggested that he</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>their high fructose corn syrup refineries</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>American citizens</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>keen powers</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the action</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>that last night</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>One can answer for his</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the truth</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>'s regime to dysfunctional and ideologically</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Justice</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Nicolas</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>his statements</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the far powerful Mexican</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>of the Russian and state</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>what Tocqueville would about America if</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>I woke up morning and saw</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>'ve long been</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>for his courage he has never</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>published in volumes in 1835</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>not take so pleasure in noting</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>n't like to ourselves as possessing</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>we had no</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>only on one</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the New York Times</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Archer</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>all blessings</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Manuel Noriega</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the US State Department</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>we do n't to see ourselves</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Western</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a U.S. puppet regime</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Cargill</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>The U.S. government</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a strategic partnership</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>my personal view</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>our good deeds people saw all</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>A true friend</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>woke up this</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>signaling about military action</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the country</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>extremely suspicious when great powers show</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>New</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>last night's attacks</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>and Tocqueville would doubtless remarked that</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>honest how the U.S. government</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>One</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>backed Emperor Maximilian</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>political philosopher</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>James Monroe</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>my thoughts drifted to Venezuela</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Great powers to expand</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Carl</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the 17th century</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>suppose this is</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a gentleman</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>human nature</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>2024 interview</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Congress</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the following image</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Russian oil refineries</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>deep philosophical insights</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Quarrels</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>cynical but believe he was</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the Russian people</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>American people should something about their</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>morning and saw news</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>280 miles</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the extreme confidence</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the CIA</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Alexis de Tocqueville</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>The Maxims</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the largest proven oil reserves</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Russia</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>want what other have and</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>President Trump's credit</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>As drank my morning</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Nicolas Maduro</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>The renewed advisory</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the way</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>their leaders</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>leaving the more powerful</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the detained man</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a forerunner</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>advisory warning Americans to travel to</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the United States</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Noriega</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>those who will allow themselves to</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>my thoughts</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the Ukrainian army</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Midland</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>their own monstrous addiction</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>small faults</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the Monroe Doctrine it supported the</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the Maxims</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>launched military operation against</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>faults we should take so much</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the French diplomat</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the Monroe Doctrine</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>its interests</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>suppose this is fine and well</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the greatest of blessings and</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>We would frequently ashamed of our</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the Panamanian dictator</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>one side</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Vladimir</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Rochefoucauld's view</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the territorial sovereignty</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Carlson</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>what other people and they</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>No people</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>people that we no greater ones</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>so much pleasure</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>many Americans</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>our boundless capacity</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>NATO</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>they want what people have</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>their cities</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a morbidly obese sugar addict</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the U.S.</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Yanukovych</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>all support</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Miami</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>of the American and their cities</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>no greater ones</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>other great powers</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the overthrow</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>if people saw the motives that</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>is the moral</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>A friend is the</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Everyone</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Emperor</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the fault</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>James</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>all moral justifications</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>a thoroughly decent and liberal minded man</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>their suppliers</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>American society</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Maxims</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Carl Jung's</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>now be strongly involved in</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the Western Hemisphere</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>When contemplating consider that</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>European meddling</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>self-serving conduct</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>its military operation</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>scholars have suggested</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>U.S. will now very strongly</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Times</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Maximilian</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the Revolution</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the ongoing war</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>State</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>was only on side</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>our decisions</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>good Ukrainian-Russian relations</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>his Feb.</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>only to convince that we have</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Tocqueville</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Putin</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the misfortunes</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>and swiftly captured President Nicholas</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>his courage</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Doctrine</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>all the motives</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the U.S. would tolerate European meddling</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Western Hemispheric domination</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the press</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>but achieving will require that</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Great powers</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Old</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>its vast mineral assets</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>he made observations of American</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the CIA's escalating involvement</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>CIA operations</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>its neighboring country</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Rochefoucauld's Maxims</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>expand they what other people</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Carl Jung's reflections</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Tucker Carlson</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>my favorites</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Alexis</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>No people are often wrong than</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>The following are of my favorites</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>said is gon na</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the danger</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>least care of to acquire</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Daniels</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the incongruity</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Manuel</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>think about America he travelled the</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>François</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Hemisphere</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>The U.S.</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>U.S.</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>in favor of Ukrainian Russian</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>good deeds if saw all the</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>Quarrels would last long if</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>narcotics and stimulants they self</span></div><div style="background: #f0f8e6; padding: 8px; border-radius: 4px; border-left: 3px solid #66cc00;"><span>the end</span></div>
+        </div>
+        
+        <h2>Wikipedia Candidates</h2>
+        <div class="pdf-grid-container">
+            <div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>the legal precedent</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>Regime</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>Monroe</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>Ukraine</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>Feb.</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>Venezuela</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>United</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>my morning coffee</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>Jung</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>no faults</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>President James Monroe</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>the archaic, primitive emotions</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>noble ancestry</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>the news</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>his book</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>can not answer</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>extremely skeptical of moral justifications for</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>Viktor</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>Moscow</span></div><div style="background: #fff0f5; padding: 8px; border-radius: 4px; border-left: 3px solid #ff69b4;"><span>and no complains of his</span></div>
+        </div>
+        
+        <h2>Extracted Sentences</h2>
+        <table style="font-size: 9pt; page-break-inside: avoid;">
+            <thead>
+                <tr><th>Sentence</th><th>Warm Vector<br><small>(Positivity, Engagement, Optimism)</small></th><th>Cold Vector<br><small>(Negativity, Risk, Uncertainty)</small></th></tr>
+            </thead>
+            <tbody>
+                <tr><td>I <span class="phenomenon">woke up</span> this morning and saw <span class="phenomenon">the news</span> that, last night, <span class="phenomenon">the <span class="phenomenon">U.S.</span></span> launched <span class="phenomenon">a military operation</span> against <span class="phenomenon">Venezuela</span> and swiftly captured <span class="phenomenon"><span class="phenomenon">President</span> <span class="phenomenon">Nicholas</span> <span class="phenomenon">Maduro</span></span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td><span class="phenomenon">The <span class="phenomenon">Trump</span> administration</span> released <span class="phenomenon">the following image</span> of <span class="phenomenon">the detained man</span> on board <span class="phenomenon">a <span class="phenomenon">U.S.</span> military aircraft</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>As I drank <span class="phenomenon">my morning coffee</span>, <span class="phenomenon">my thoughts</span> drifted not to <span class="phenomenon">Venezuela</span>, but to <span class="phenomenon">the French diplomat</span> and <span class="phenomenon">political philosopher</span>, <span class="phenomenon"><span class="phenomenon">Alexis</span> de <span class="phenomenon">Tocqueville</span></span>, who visited <span class="phenomenon">America</span> 1831-1832 to study <span class="phenomenon">our prison system</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>Along <span class="phenomenon">the way</span>, he made <span class="phenomenon">many observations</span> of <span class="phenomenon">America</span>n society, which he later presented in <span class="phenomenon">his book</span>, <span class="phenomenon">Democracy</span> in <span class="phenomenon">America</span>, published in <span class="phenomenon">two volumes</span> in 1835 and 1840.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>I<span class="phenomenon">'ve long been</span> <span class="phenomenon">a great admirer</span> of <span class="phenomenon">Tocqueville</span>, who combined <span class="phenomenon">keen powers</span> of observation with <span class="phenomenon">deep philosophical insights</span> into <span class="phenomenon">human nature</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td><span class="phenomenon">Democracy</span> in <span class="phenomenon">America</span> and The <span class="phenomenon">Old</span> <span class="phenomenon">Regime</span> and the <span class="phenomenon">Revolution</span> are masterpieces of <span class="phenomenon">social and political philosophy</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>I <span class="phenomenon">often wonder what</span> <span class="phenomenon">Tocqueville</span> would think about <span class="phenomenon">America</span> if he travelled <span class="phenomenon">the country</span> today.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>I<span class="phenomenon">'m confident he</span> would be hard-pressed to reconcile <span class="phenomenon">the extreme malaise</span>—both physical and spiritual—of <span class="phenomenon">the <span class="phenomenon">America</span>n people</span> and <span class="phenomenon">their cities</span> with <span class="phenomenon">the extreme confidence</span> of <span class="phenomenon">their leaders</span> that the <span class="phenomenon">United</span> <span class="phenomenon"><span class="phenomenon">State</span>s</span> should rule <span class="phenomenon">the world</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>Being <span class="phenomenon">a gentleman</span> and diplomat of <span class="phenomenon">noble ancestry</span>, he was doubtless familiar with <span class="phenomenon">the <span class="phenomenon">Maxims</span></span> of <span class="phenomenon">François</span> de La <span class="phenomenon">Rochefoucauld</span>, <span class="phenomenon">a famous courtier</span>, soldier, and writer during <span class="phenomenon">the 17th century</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td><span class="phenomenon">The <span class="phenomenon">Maxims</span></span> are <span class="phenomenon">a reflection</span> on <span class="phenomenon">our boundless capacity</span> for self-deception, <span class="phenomenon">self-serving conduct</span>, and virtue-signaling.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>The following are some of <span class="phenomenon">my favorites</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>'We are so accustomed to disguise ourselves to others, that in <span class="phenomenon">the end</span>, we become disguised to ourselves.'</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>'We confess <span class="phenomenon">small faults</span> only to convince people that we have <span class="phenomenon">no greater ones</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>'
+'We are strong enough to bear <span class="phenomenon">the misfortunes</span> of others.</td><td><span style="background-color: #ffcccc;">[0.10, 0.00, 1.00]</span></td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>'
+'<span class="phenomenon">The extreme pleasure</span> we take in talking about ourselves should make us afraid that we may scarcely be giving any to <span class="phenomenon">our listeners</span>.'
+'<span class="phenomenon">Everyone</span> complains of <span class="phenomenon">his memory</span>, and <span class="phenomenon">no one</span> complains of <span class="phenomenon">his judgment</span>.'
+'We would frequently be ashamed of <span class="phenomenon">our good deeds</span> if people saw <span class="phenomenon">all the motives</span> that produced them.'
+'<span class="phenomenon">No people</span> are more often wrong than those who will not allow themselves to be wrong.</td><td><span style="background-color: #ffcccc;">[0.01, 0.03, 1.00]</span></td><td><span style="background-color: #ccddff;">[0.00, 0.01, 0.00]</span></td></tr><tr><td>'
+'If we had <span class="phenomenon">no faults</span> we should not take <span class="phenomenon">so much pleasure</span> in noting those of others.'
+'<span class="phenomenon">Quarrels</span> would not last long if <span class="phenomenon">the fault</span> was <span class="phenomenon">only on one</span> side.'
+'<span class="phenomenon">One</span> cannot answer for <span class="phenomenon">his courage</span> when he has never been in danger.'
+'<span class="phenomenon">A true friend</span> is the greatest of <span class="phenomenon">all blessings</span>, and the one that we take the least care of all to acquire.'</td><td><span style="background-color: #ffcccc;">[0.00, 0.02, 0.00]</span></td><td><span style="background-color: #ccddff;">[0.02, 0.00, 1.00]</span></td></tr><tr><td><span class="phenomenon">Many scholars</span> have suggested that he was being cynical, but I believe he was just telling <span class="phenomenon">the truth</span> about <span class="phenomenon">human nature</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>I perceive in <span class="phenomenon">Rochefoucauld</span>'s <span class="phenomenon">Maxims</span> <span class="phenomenon">a forerunner</span> to <span class="phenomenon">Carl</span> <span class="phenomenon">Jung</span>'s reflections on <span class="phenomenon">the 'shadow' side</span> of <span class="phenomenon">human nature</span>—<span class="phenomenon">the archaic, primitive emotions</span> that we don't like to see ourselves as possessing and driving <span class="phenomenon">our decisions</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>I <span class="phenomenon">digress</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>Back to <span class="phenomenon">the action</span> in <span class="phenomenon">Venezuela</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td><span class="phenomenon">The <span class="phenomenon">U.S.</span></span> is now hauling <span class="phenomenon">Nicolas</span> <span class="phenomenon">Maduro</span> back to <span class="phenomenon"><span class="phenomenon">New</span> <span class="phenomenon">York</span></span> to stand trial for <span class="phenomenon">various offenses</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td><span class="phenomenon">The <span class="phenomenon">Justice</span> <span class="phenomenon">Department</span></span> has cited <span class="phenomenon">the legal precedent</span> of <span class="phenomenon">the Panamanian dictator</span>, <span class="phenomenon"><span class="phenomenon">Manuel</span> <span class="phenomenon">Noriega</span></span>, who was seized by <span class="phenomenon">a <span class="phenomenon">U.S.</span> military raid</span> in 1990 and hauled back to <span class="phenomenon">Miami</span> to stand trial for <span class="phenomenon">various charges</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>To <span class="phenomenon">President</span> <span class="phenomenon">Trump</span>'s credit, he isn't indulging in too much humbug virtue-signaling about <span class="phenomenon">this military action</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>In <span class="phenomenon">his statements</span> to <span class="phenomenon">the press</span>, he has already mentioned that <span class="phenomenon">the <span class="phenomenon">U.S.</span></span> will now be 'very strongly involved in <span class="phenomenon">Venezuela</span>'s oil industry.'</td><td><span style="background-color: #ffcccc;">[0.00, 0.05, 0.00]</span></td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>Apparently aware of <span class="phenomenon">the incongruity</span> of taking out <span class="phenomenon">Maduro</span> while leaving the (far more powerful) Mexican cartels intact on <span class="phenomenon">our own border</span>, <span class="phenomenon">Trump</span> said, 'something is gonna have to be done with <span class="phenomenon">Mexico</span>.'</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td><span class="phenomenon">Rochefoucauld</span> and <span class="phenomenon">Tocqueville</span> would have doubtless remarked that <span class="phenomenon">the <span class="phenomenon">America</span>n people</span> should do something about <span class="phenomenon">their own monstrous addiction</span> to narcotics and stimulants before they self-righteously fulminate against <span class="phenomenon">the depravity</span> of <span class="phenomenon">their suppliers</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td><span class="phenomenon">This</span> is <span class="phenomenon">the moral and spiritual equivalent</span> of <span class="phenomenon">a morbidly obese sugar addict</span> railing about <span class="phenomenon">the depravity</span> of <span class="phenomenon"><span class="phenomenon">Archer</span> <span class="phenomenon">Daniels</span> <span class="phenomenon">Midland</span></span> and <span class="phenomenon">Cargill</span> and demanding that <span class="phenomenon">their high fructose corn syrup refineries</span> be bombed.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>Speaking of <span class="phenomenon">bombing refineries</span>: A few days ago the <span class="phenomenon"><span class="phenomenon">New</span> <span class="phenomenon">York</span></span> <span class="phenomenon">Times</span> published <span class="phenomenon">a report</span> about the <span class="phenomenon">CIA</span>'s escalating involvement in helping <span class="phenomenon">Ukraine</span> to target <span class="phenomenon"><span class="phenomenon">Russia</span>n</span> oil refineries.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>Additionally, the US <span class="phenomenon">State</span> <span class="phenomenon">Department</span> re-issued an urgent advisory warning <span class="phenomenon">America</span>ns not to travel to <span class="phenomenon">Russia</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td><span class="phenomenon">The renewed advisory</span> instructs <span class="phenomenon">America</span>n citizens currently in <span class="phenomenon">Russia</span> to depart immediately, citing <span class="phenomenon">the danger</span> associated with <span class="phenomenon">the ongoing war</span> with <span class="phenomenon">Ukraine</span>.</td><td>[0.00, 0.00, 0.00]</td><td><span style="background-color: #ccddff;">[0.05, 0.00, 1.00]</span></td></tr><tr><td>Back in <span class="phenomenon">Feb.</span> 2022, when <span class="phenomenon">Russia</span> launched <span class="phenomenon">its military operation</span> against <span class="phenomenon">Ukraine</span>, many <span class="phenomenon">America</span>ns were appalled that <span class="phenomenon">Russia</span> would violate <span class="phenomenon">the territorial sovereignty</span> of <span class="phenomenon">its neighboring country</span>, even though it has long been understood by anyone paying attention that the <span class="phenomenon">CIA</span> had been meddling in <span class="phenomenon">Ukraine</span> since 2005, and that <span class="phenomenon">NATO</span> had been updating and preparing <span class="phenomenon">the Ukrainian army</span> for war with <span class="phenomenon"><span class="phenomenon">Russia</span>n</span> since 2014, when the <span class="phenomenon">CIA</span> assisted in overthrowing Ukrainian <span class="phenomenon">President</span> <span class="phenomenon">Viktor</span> <span class="phenomenon">Yanukovych</span>, who was in favor of good Ukrainian-<span class="phenomenon"><span class="phenomenon">Russia</span>n</span> relations.</td><td><span style="background-color: #ffcccc;">[0.01, 0.00, 1.00]</span></td><td>[0.00, 0.00, 0.00]</td></tr><tr><td><span class="phenomenon"><span class="phenomenon">Russia</span>n</span> <span class="phenomenon">President</span> <span class="phenomenon"><span class="phenomenon">Vladimir</span> <span class="phenomenon">Putin</span></span> has repeatedly stated—most notably in his <span class="phenomenon">Feb.</span> 6, <span class="phenomenon">2024 interview</span> with <span class="phenomenon">Tucker</span> <span class="phenomenon">Carl</span>son—that <span class="phenomenon">Russia</span> would like to have <span class="phenomenon">friendly and cooperative relations</span> with the <span class="phenomenon">United</span> <span class="phenomenon"><span class="phenomenon">State</span>s</span>, but achieving this will require that the <span class="phenomenon">United</span> <span class="phenomenon"><span class="phenomenon">State</span>s</span> recognize <span class="phenomenon">the legitimate interests</span> of the <span class="phenomenon"><span class="phenomenon">Russia</span>n</span> people and state.</td><td><span style="background-color: #ffcccc;">[0.00, 0.02, 0.00]</span></td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>With <span class="phenomenon">last night's attacks</span> on <span class="phenomenon">Venezuela</span>, <span class="phenomenon">the <span class="phenomenon">Trump</span> administration</span> reasserted <span class="phenomenon">the full force</span> of the <span class="phenomenon">Monroe</span> <span class="phenomenon">Doctrine</span> of 1823, in which <span class="phenomenon">President</span> <span class="phenomenon">James</span> <span class="phenomenon">Monroe</span> stated in <span class="phenomenon">his annual address</span> to <span class="phenomenon">Congress</span> that <span class="phenomenon">the <span class="phenomenon">U.S.</span></span> would not tolerate <span class="phenomenon">European meddling</span> in the <span class="phenomenon">Western</span> <span class="phenomenon">Hemisphere</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td><span class="phenomenon">The <span class="phenomenon">U.S.</span></span> invoked the <span class="phenomenon">Monroe</span> <span class="phenomenon">Doctrine</span> when it supported <span class="phenomenon">the overthrow</span> and execution of the French <span class="phenomenon">backed <span class="phenomenon">Emperor</span> <span class="phenomenon">Maximilian</span></span> of <span class="phenomenon">Mexico</span>, even though he was <span class="phenomenon">a thoroughly decent and liberal minded man</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>To express <span class="phenomenon">my personal view</span> of <span class="phenomenon">the matter</span>: I agree with <span class="phenomenon">Rochefoucauld</span>'s view that war is always about <span class="phenomenon">a kingdom</span> or nation trying to secure and extend <span class="phenomenon">its interests</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>He was extremely skeptical of <span class="phenomenon">all moral justifications</span> for war.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td><span class="phenomenon">Great powers</span> want to expand—they want what <span class="phenomenon">other people</span> have—and they are therefore extremely suspicious when <span class="phenomenon">other great powers</span> show up in <span class="phenomenon">their backyard</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td><span class="phenomenon">The <span class="phenomenon">U.S.</span></span> sees <span class="phenomenon">Venezuela</span> as <span class="phenomenon">a vital strategic asset</span> with <span class="phenomenon">the largest proven oil reserves</span> on earth.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td><span class="phenomenon"><span class="phenomenon">The <span class="phenomenon">U.S.</span></span> government</span> perceives <span class="phenomenon">Maduro</span>'s regime to be dysfunctional and ideologically misaligned with <span class="phenomenon"><span class="phenomenon">U.S.</span> interests</span>, and therefore wants to replace him with <span class="phenomenon">a <span class="phenomenon">U.S.</span> puppet regime</span> that will open <span class="phenomenon">the country</span> and <span class="phenomenon">its vast mineral assets</span> to exploit them in <span class="phenomenon">a strategic partnership</span> with <span class="phenomenon">the <span class="phenomenon">U.S.</span></span></td><td><span style="background-color: #ffcccc;">[0.00, 0.02, 0.00]</span></td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>I <span class="phenomenon">suppose this is</span> all fine and well, but to be completely fair and honest, how can <span class="phenomenon"><span class="phenomenon">the <span class="phenomenon">U.S.</span></span> government</span> reassert the <span class="phenomenon">Monroe</span> <span class="phenomenon">Doctrine</span>, claiming <span class="phenomenon"><span class="phenomenon">Western</span> Hemispheric</span> domination, while denying that <span class="phenomenon">Russia</span> has <span class="phenomenon">legitimate security interests</span> in <span class="phenomenon">a border region</span> of <span class="phenomenon">ethnic <span class="phenomenon"><span class="phenomenon">Russia</span>n</span>s</span> that starts <span class="phenomenon">280 miles</span> from <span class="phenomenon">Moscow</span>?</td><td><span style="background-color: #ffcccc;">[0.00, 0.02, 0.00]</span></td><td>[0.00, 0.00, 0.00]</td></tr><tr><td>When <span class="phenomenon">contemplating this</span>, consider that <span class="phenomenon">Venezuela</span> is 2000 miles from <span class="phenomenon">Miami</span> and poses <span class="phenomenon">zero military threat</span> to the <span class="phenomenon">United</span> <span class="phenomenon"><span class="phenomenon">State</span>s</span>.</td><td>[0.00, 0.00, 0.00]</td><td><span style="background-color: #ccddff;">[0.05, 0.00, 1.00]</span></td></tr><tr><td>It seems to me that <span class="phenomenon">the <span class="phenomenon">Trump</span> administration</span> should stop applying <span class="phenomenon">such a crass and extreme double standard</span> and immediately recognize <span class="phenomenon">Russia</span>'s <span class="phenomenon">legitimate security interests</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr><tr><td><span class="phenomenon">This</span> <span class="phenomenon">means immediately ending</span> <span class="phenomenon">CIA</span> operations in <span class="phenomenon">Ukraine</span> and terminating <span class="phenomenon">all support</span> for <span class="phenomenon">the corrupt <span class="phenomenon">Zelensky</span> regime</span>.</td><td>[0.00, 0.00, 0.00]</td><td>[0.00, 0.00, 0.00]</td></tr>
+            </tbody>
+        </table>
+        
+        <h2>Wikipedia Enrichment</h2>
+        <table style="font-size: 9pt; page-break-inside: avoid;">
+            <thead>
+                <tr><th>Concept</th><th>Summary</th><th>URL</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>the legal precedent</td><td>...</td><td><a href="https://en.wikipedia.org/wiki/the_legal_precedent" target="_blank">the legal precedent</a></td></tr><tr><td>Regime</td><td>A regiment is a military unit. Its role and size varies markedly, depending on the country, service, or specialisation....</td><td><a href="https://en.wikipedia.org/wiki/Regime" target="_blank">Regime</a></td></tr><tr><td>Monroe</td><td>...</td><td><a href="https://en.wikipedia.org/wiki/Monroe" target="_blank">Monroe</a></td></tr><tr><td>Ukraine</td><td>Ukraine is a country in Eastern Europe. It is the second-largest country in Europe after Russia, which borders it to the east and northeast....</td><td><a href="https://en.wikipedia.org/wiki/Ukraine" target="_blank">Ukraine</a></td></tr><tr><td>Feb.</td><td>February is the second month of the year in the Julian and Gregorian calendars. The month has 28 days in common years and 29 in leap years, with the 29th day being called the leap day....</td><td><a href="https://en.wikipedia.org/wiki/February" target="_blank">February</a></td></tr><tr><td>Venezuela</td><td>Venezuela, officially the Bolivarian Republic of Venezuela, is a country on the northern coast of South America, consisting of a continental landmass and many islands and islets in the Caribbean Sea. ...</td><td><a href="https://en.wikipedia.org/wiki/Venezuela" target="_blank">Venezuela</a></td></tr><tr><td>United</td><td>...</td><td><a href="https://en.wikipedia.org/wiki/United" target="_blank">United</a></td></tr><tr><td>my morning coffee</td><td>"Watermelon Sugar" is a song by English singer-songwriter Harry Styles from his second studio album Fine Line (2019), included as the album's second track. Styles wrote the song with Mitch Rowland and...</td><td><a href="https://en.wikipedia.org/wiki/Watermelon_Sugar" target="_blank">Watermelon Sugar</a></td></tr><tr><td>Jung</td><td>...</td><td><a href="https://en.wikipedia.org/wiki/Jung" target="_blank">Jung</a></td></tr><tr><td>no faults</td><td>In geology, a fault is a planar fracture or discontinuity in a volume of rock across which there has been significant displacement as a result of rock-mass movements. Large faults within Earth's crust...</td><td><a href="https://en.wikipedia.org/wiki/Fault_(geology)" target="_blank">Fault (geology)</a></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    </div>
+    
+    <!-- Responsibility Analysis Section -->
+    <div class="section-divider" id="responsibility-analysis">
+        <h2>🎯 Responsibility Futures Analysis</h2>
+    </div>
+    
+    <div class="report-section">
+        
+    <div class="container">
+        <div class="header">
+            <h1>Responsibility Futures Analysis</h1>
+            <div class="subtitle">Powered by LinguaLint Event Code Extractor</div>
+            <div class="timestamp">Generated: January 06, 2026 at 10:05 PM</div>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">108</div>
+                <div class="stat-label">Total Entities</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">43</div>
+                <div class="stat-label">Total Events</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">12.88</div>
+                <div class="stat-label">Avg Responsibility Ratio</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">76</div>
+                <div class="stat-label">High Risk Entities</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">23</div>
+                <div class="stat-label">Low Risk Entities</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">1.00</div>
+                <div class="stat-label">Median R-Ratio</div>
+            </div>
+        </div>
+        
+        <div class="content">
+            
+            <div class="section">
+                <h2>📊 Responsibility Matrix Dashboard</h2>
+                <p>Comprehensive visualization of responsibility ratios, risk assessments, and entity relationships.</p>
+                <div class="visualization no-break">
+                    <img src="responsibility_matrix_20260106_220544.png" alt="Responsibility Matrix Dashboard" style="max-width: 95% !important; max-height: 6in !important; height: auto !important; display: block; margin: 0.25in auto;">
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🌡️ Vector Analysis</h2>
+                <p>Warm and cold vector analysis showing intention and negligence indicators for top entities.</p>
+                <div class="visualization no-break">
+                    <img src="vector_analysis_20260106_220544.png" alt="Vector Analysis" style="max-width: 95% !important; max-height: 6in !important; height: auto !important; display: block; margin: 0.25in auto;">
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>📈 Statistical Summary</h2>
+                <p>Distribution analysis and correlation patterns in the responsibility data.</p>
+                <div class="visualization no-break">
+                    <img src="statistical_summary_20260106_220544.png" alt="Statistical Summary" style="max-width: 95% !important; max-height: 6in !important; height: auto !important; display: block; margin: 0.25in auto;">
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🏆 Top Performing Entities</h2>
+                <p>Entities with the highest responsibility ratios (R = Intention / Negligence).</p>
+                <table class="entity-table" style="font-size: 9pt; page-break-inside: avoid;">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Entity</th>
+                            <th>R-Ratio</th>
+                            <th>Risk Level</th>
+                            <th>Mentions</th>
+                            <th>Intention</th>
+                            <th>Negligence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td><strong>1</strong></td>
+                            <td>Yanukovych</td>
+                            <td><strong>205.00</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>1</td>
+                            <td>20.50</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>2</strong></td>
+                            <td>Viktor</td>
+                            <td><strong>205.00</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>1</td>
+                            <td>20.50</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>3</strong></td>
+                            <td>Viktor Yanukovych</td>
+                            <td><strong>205.00</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>1</td>
+                            <td>20.50</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>4</strong></td>
+                            <td>NATO</td>
+                            <td><strong>205.00</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>1</td>
+                            <td>20.50</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>5</strong></td>
+                            <td>Feb.</td>
+                            <td><strong>106.67</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>2</td>
+                            <td>10.67</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>6</strong></td>
+                            <td>Russian</td>
+                            <td><strong>55.46</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>4</td>
+                            <td>5.55</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>7</strong></td>
+                            <td>Everyone</td>
+                            <td><strong>50.00</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>1</td>
+                            <td>21.74</td>
+                            <td>0.43</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>8</strong></td>
+                            <td>The extreme pleasure</td>
+                            <td><strong>50.00</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>1</td>
+                            <td>21.74</td>
+                            <td>0.43</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>9</strong></td>
+                            <td>No people</td>
+                            <td><strong>50.00</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>1</td>
+                            <td>21.74</td>
+                            <td>0.43</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>10</strong></td>
+                            <td>President</td>
+                            <td><strong>42.67</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>5</td>
+                            <td>4.27</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>11</strong></td>
+                            <td>Venezuela's oil industry</td>
+                            <td><strong>18.18</strong></td>
+                            <td><span class="risk-badge risk-very-low">Very Low</span></td>
+                            <td>1</td>
+                            <td>1.82</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>12</strong></td>
+                            <td>U.S. interests</td>
+                            <td><strong>9.52</strong></td>
+                            <td><span class="risk-badge risk-low">Low</span></td>
+                            <td>1</td>
+                            <td>0.95</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>13</strong></td>
+                            <td>Maduro's regime</td>
+                            <td><strong>9.52</strong></td>
+                            <td><span class="risk-badge risk-low">Low</span></td>
+                            <td>1</td>
+                            <td>0.95</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>14</strong></td>
+                            <td>The U.S. government</td>
+                            <td><strong>9.02</strong></td>
+                            <td><span class="risk-badge risk-low">Low</span></td>
+                            <td>2</td>
+                            <td>0.90</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>15</strong></td>
+                            <td>Western Hemispheric</td>
+                            <td><strong>8.51</strong></td>
+                            <td><span class="risk-badge risk-low">Low</span></td>
+                            <td>1</td>
+                            <td>0.85</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>16</strong></td>
+                            <td>Moscow</td>
+                            <td><strong>8.51</strong></td>
+                            <td><span class="risk-badge risk-low">Low</span></td>
+                            <td>1</td>
+                            <td>0.85</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>17</strong></td>
+                            <td>Western Hemispheric domination</td>
+                            <td><strong>8.51</strong></td>
+                            <td><span class="risk-badge risk-low">Low</span></td>
+                            <td>1</td>
+                            <td>0.85</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>18</strong></td>
+                            <td>Vladimir Putin</td>
+                            <td><strong>8.33</strong></td>
+                            <td><span class="risk-badge risk-low">Low</span></td>
+                            <td>1</td>
+                            <td>0.83</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>19</strong></td>
+                            <td>Putin</td>
+                            <td><strong>8.33</strong></td>
+                            <td><span class="risk-badge risk-low">Low</span></td>
+                            <td>1</td>
+                            <td>0.83</td>
+                            <td>0.10</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>20</strong></td>
+                            <td>Tucker</td>
+                            <td><strong>8.33</strong></td>
+                            <td><span class="risk-badge risk-low">Low</span></td>
+                            <td>1</td>
+                            <td>0.83</td>
+                            <td>0.10</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="methodology">
+                <h3>🔬 Methodology</h3>
+                <p><strong>Responsibility Ratio (R):</strong> Calculated as R = Intention Score / Negligence Score</p>
+                <p><strong>Intention Score:</strong> Derived from warm vectors (Positivity × 0.4 + Engagement × 0.4 + Optimism × 0.2) × 100</p>
+                <p><strong>Negligence Score:</strong> Derived from cold vectors (Negativity × 0.5 + Risk × 0.3 + Uncertainty × 0.2) × 100</p>
+                <p><strong>Risk Levels:</strong></p>
+                <ul>
+                    <li><strong>Very Low:</strong> R > 10 (Highly responsible, minimal risk)</li>
+                    <li><strong>Low:</strong> 5 < R ≤ 10 (Generally responsible)</li>
+                    <li><strong>Moderate:</strong> 2 < R ≤ 5 (Balanced responsibility)</li>
+                    <li><strong>High:</strong> 1 < R ≤ 2 (Concerning responsibility levels)</li>
+                    <li><strong>Very High:</strong> R ≤ 1 (High risk, negligence exceeds intention)</li>
+                </ul>
+                <p><strong>Data Source:</strong> Analysis based on 43 events extracted from LinguaLint processing, covering 108 unique entities.</p>
+                <p><strong>Original Analysis:</strong> 2026-01-06T22:05:44.630489</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Responsibility Futures Engine v2.0 | LinguaLint Integration</p>
+            <p>Report generated from: extraction_20260106_220544_responsibility_analysis.json</p>
+        </div>
+    </div>
+
+    </div>
+    
+    <!-- Project Management Section -->
+    <div class="section-divider" id="project-management">
+        <h2>📈 Project Management & Timeline</h2>
+    </div>
+    
+    <div class="report-section">
+        
+    <h1>LinguaLint Risk Factor Analysis - Project Plan</h1>
+    <p>Generated from risk factor extraction on 2026-01-06 22:05</p>
+    
+    <div class="gantt-container">
+        <table class="gantt-table" style="font-size: 9pt; page-break-inside: avoid;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Task Name</th>
+                    <th>Duration</th>
+                    <th>Start Date</th>
+                    <th>Finish Date</th>
+                    <th>Resource</th>
+                    <th>Visual Timeline</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                <tr>
+                    <td>1</td>
+                    <td>Phase 1: Risk Assessment & Research</td>
+                    <td>0 days</td>
+                    <td>2026-01-06</td>
+                    <td>2026-01-06</td>
+                    <td></td>
+                    <td><div class="task-bar milestone" title="Initial analysis phase"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>2</td>
+                    <td>Research Subject: New</td>
+                    <td>2 days</td>
+                    <td>2026-01-06</td>
+                    <td>2026-01-08</td>
+                    <td>Risk Analyst</td>
+                    <td><div class="task-bar risk-analyst" title="Research regulatory and market implications of New"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>3</td>
+                    <td>Research Subject: Yanukovych</td>
+                    <td>2 days</td>
+                    <td>2026-01-06</td>
+                    <td>2026-01-08</td>
+                    <td>Risk Analyst</td>
+                    <td><div class="task-bar risk-analyst" title="Research regulatory and market implications of Yanukovych"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>4</td>
+                    <td>Research Subject: Miami</td>
+                    <td>2 days</td>
+                    <td>2026-01-06</td>
+                    <td>2026-01-08</td>
+                    <td>Risk Analyst</td>
+                    <td><div class="task-bar risk-analyst" title="Research regulatory and market implications of Miami"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>5</td>
+                    <td>Research Subject: Regime</td>
+                    <td>2 days</td>
+                    <td>2026-01-06</td>
+                    <td>2026-01-08</td>
+                    <td>Risk Analyst</td>
+                    <td><div class="task-bar risk-analyst" title="Research regulatory and market implications of Regime"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>6</td>
+                    <td>Research Subject: Monroe</td>
+                    <td>2 days</td>
+                    <td>2026-01-06</td>
+                    <td>2026-01-08</td>
+                    <td>Risk Analyst</td>
+                    <td><div class="task-bar risk-analyst" title="Research regulatory and market implications of Monroe"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>7</td>
+                    <td>Wiki Research: Regime</td>
+                    <td>1 days</td>
+                    <td>2026-01-06</td>
+                    <td>2026-01-07</td>
+                    <td>Researcher</td>
+                    <td><div class="task-bar researcher" title="Background research: https://en.wikipedia.org/wiki/Regime"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>8</td>
+                    <td>Phase 2: Risk Mitigation Planning</td>
+                    <td>0 days</td>
+                    <td>2026-01-07</td>
+                    <td>2026-01-07</td>
+                    <td></td>
+                    <td><div class="task-bar milestone" title="Develop mitigation strategies"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>9</td>
+                    <td>Leverage Opportunity #14</td>
+                    <td>2 days</td>
+                    <td>2026-01-07</td>
+                    <td>2026-01-09</td>
+                    <td>Strategy Lead</td>
+                    <td><div class="task-bar strategy-lead" title="Opportunity: '
+'We are strong enough to bear the misfortunes of others...."></div></td>
+                </tr>
+            
+                <tr>
+                    <td>10</td>
+                    <td>Leverage Opportunity #15</td>
+                    <td>2 days</td>
+                    <td>2026-01-07</td>
+                    <td>2026-01-09</td>
+                    <td>Strategy Lead</td>
+                    <td><div class="task-bar strategy-lead" title="Opportunity: '
+'The extreme pleasure we take in talking about ourselves should make us afraid that w"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>11</td>
+                    <td>Mitigate High Risk Item #16</td>
+                    <td>3 days</td>
+                    <td>2026-01-07</td>
+                    <td>2026-01-10</td>
+                    <td>Risk Manager</td>
+                    <td><div class="task-bar risk-manager" title="Address: '
+'If we had no faults we should not take so much pleasure in noting those of others.'
+'Qua"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>12</td>
+                    <td>Mitigate High Risk Item #30</td>
+                    <td>3 days</td>
+                    <td>2026-01-07</td>
+                    <td>2026-01-10</td>
+                    <td>Risk Manager</td>
+                    <td><div class="task-bar risk-manager" title="Address: The renewed advisory instructs American citizens currently in Russia to depart immediately,"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>13</td>
+                    <td>Leverage Opportunity #31</td>
+                    <td>2 days</td>
+                    <td>2026-01-07</td>
+                    <td>2026-01-09</td>
+                    <td>Strategy Lead</td>
+                    <td><div class="task-bar strategy-lead" title="Opportunity: Back in Feb. 2022, when Russia launched its military operation against Ukraine, many Am"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>14</td>
+                    <td>Mitigate High Risk Item #41</td>
+                    <td>3 days</td>
+                    <td>2026-01-07</td>
+                    <td>2026-01-10</td>
+                    <td>Risk Manager</td>
+                    <td><div class="task-bar risk-manager" title="Address: When contemplating this, consider that Venezuela is 2000 miles from Miami and poses zero mi"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>15</td>
+                    <td>Phase 3: Implementation & Monitoring</td>
+                    <td>0 days</td>
+                    <td>2026-01-08</td>
+                    <td>2026-01-08</td>
+                    <td></td>
+                    <td><div class="task-bar milestone" title="Execute and track progress"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>16</td>
+                    <td>Monitor: the legal precedent</td>
+                    <td>5 days</td>
+                    <td>2026-01-08</td>
+                    <td>2026-01-13</td>
+                    <td>Operations Team</td>
+                    <td><div class="task-bar operations-team" title="Ongoing monitoring and assessment of the legal precedent"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>17</td>
+                    <td>Monitor: Regime</td>
+                    <td>5 days</td>
+                    <td>2026-01-08</td>
+                    <td>2026-01-13</td>
+                    <td>Operations Team</td>
+                    <td><div class="task-bar operations-team" title="Ongoing monitoring and assessment of Regime"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>18</td>
+                    <td>Monitor: Monroe</td>
+                    <td>5 days</td>
+                    <td>2026-01-08</td>
+                    <td>2026-01-13</td>
+                    <td>Operations Team</td>
+                    <td><div class="task-bar operations-team" title="Ongoing monitoring and assessment of Monroe"></div></td>
+                </tr>
+            
+                <tr>
+                    <td>19</td>
+                    <td>Project Review & Documentation</td>
+                    <td>2 days</td>
+                    <td>2026-01-08</td>
+                    <td>2026-01-10</td>
+                    <td>Project Manager</td>
+                    <td><div class="task-bar project-manager" title="Compile results and lessons learned"></div></td>
+                </tr>
+            
+            </tbody>
+        </table>
+    </div>
+    
+    <h2>Legend</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 20px 0;">
+        <div><span class="task-bar risk-analyst" style="display: inline-block; width: 20px;"></span> Risk Analyst</div>
+        <div><span class="task-bar researcher" style="display: inline-block; width: 20px;"></span> Researcher</div>
+        <div><span class="task-bar risk-manager" style="display: inline-block; width: 20px;"></span> Risk Manager</div>
+        <div><span class="task-bar strategy-lead" style="display: inline-block; width: 20px;"></span> Strategy Lead</div>
+        <div><span class="task-bar operations-team" style="display: inline-block; width: 20px;"></span> Operations Team</div>
+        <div><span class="task-bar project-manager" style="display: inline-block; width: 20px;"></span> Project Manager</div>
+    </div>
+
+    </div>
+    
+    <!-- Appendix -->
+    <div class="section-divider" id="appendix">
+        <h2>📎 Appendix</h2>
+    </div>
+    
+    <div class="report-section">
+        <h3>Generated Files</h3>
+        <ul>
+            <li>📄 Raw extraction data: extraction_20260106_220544.json</li>
+            <li>📊 Responsibility analysis: extraction_20260106_220544_responsibility_analysis.json</li>
+            <li>📈 Project plan: project_plan_20260106_220544.csv</li>
+            <li>🎨 Visualizations: Multiple PNG files with analysis charts</li>
+        </ul>
+        
+        <h3>Analysis Metadata</h3>
+        <p><strong>Timestamp:</strong> 20260106_220544</p>
+        <p><strong>Generated:</strong> 2026-01-06T22:05:46.079157</p>
+        <p><strong>System:</strong> LinguaLint Event Code Extractor with Responsibility Futures Analysis</p>
+    </div>
+</body>
+</html>

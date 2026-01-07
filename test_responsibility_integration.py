@@ -60,11 +60,17 @@ def test_integration():
         
         # Create output files
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        reports_dir = Path("./reports")
-        reports_dir.mkdir(exist_ok=True)
         
-        json_file = reports_dir / f"test_extraction_{timestamp}.json"
-        html_file = reports_dir / f"test_report_{timestamp}.html"
+        # Create lingualint_analysis directory structure
+        analysis_base_dir = Path("./lingualint_analysis")
+        analysis_base_dir.mkdir(exist_ok=True)
+        
+        # Create timestamped analysis folder
+        analysis_dir = analysis_base_dir / f"test_analysis_{timestamp}"
+        analysis_dir.mkdir(exist_ok=True)
+        
+        json_file = analysis_dir / f"test_extraction_{timestamp}.json"
+        html_file = analysis_dir / f"test_report_{timestamp}.html"
         
         # Save JSON
         print("\nStep 4: Saving extraction results...")
