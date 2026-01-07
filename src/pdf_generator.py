@@ -52,21 +52,26 @@ class LinguaLintPDFGenerator:
     Generates comprehensive PDF reports from LinguaLint HTML outputs
     """
     
-    def __init__(self, timestamp: str, reports_dir: Path = None):
+    def __init__(self, timestamp: str, analysis_dir: Path = None):
         self.timestamp = timestamp
-        self.reports_dir = reports_dir or Path("./reports")
+        self.analysis_dir = analysis_dir
         self.root_dir = Path(".")
         
-        # Create super folder for all analyses
-        self.super_dir = self.root_dir / "lingualint_analysis"
-        self.super_dir.mkdir(exist_ok=True)
-        
-        # Create specific analysis folder within super folder
-        self.output_dir = self.super_dir / f"analysis_{timestamp}"
-        self.output_dir.mkdir(exist_ok=True)
-        
-        print(f"📁 PDF super directory: {self.super_dir}")
-        print(f"📁 Analysis output directory: {self.output_dir}")
+        if analysis_dir:
+            # Use provided analysis directory
+            self.output_dir = analysis_dir
+            print(f"📁 Using existing analysis directory: {self.output_dir}")
+        else:
+            # Create lingualint_analysis directory structure (legacy mode)
+            self.super_dir = self.root_dir / "lingualint_analysis"
+            self.super_dir.mkdir(exist_ok=True)
+            
+            # Create specific analysis folder within super folder
+            self.output_dir = self.super_dir / f"analysis_{timestamp}"
+            self.output_dir.mkdir(exist_ok=True)
+            
+            print(f"📁 PDF super directory: {self.super_dir}")
+            print(f"📁 Analysis output directory: {self.output_dir}")
     
     def find_html_reports(self) -> Dict[str, Optional[Path]]:
         """Find all HTML reports for the given timestamp"""
@@ -76,47 +81,38 @@ class LinguaLintPDFGenerator:
             'gantt_chart': None
         }
         
-        # Look for main report
-        main_report = self.reports_dir / f"report_{self.timestamp}.html"
+        # Look for main report in the analysis directory
+        main_report = self.output_dir / f"report_{self.timestamp}.html"
         if main_report.exists():
             reports['main_report'] = main_report
         
-        # Look for responsibility report
-        responsibility_report = self.reports_dir / f"responsibility_report_{self.timestamp}.html"
+        # Look for responsibility report in the analysis directory
+        responsibility_report = self.output_dir / f"responsibility_report_{self.timestamp}.html"
         if responsibility_report.exists():
             reports['responsibility_report'] = responsibility_report
         
-        # Look for gantt chart
-        gantt_chart = self.reports_dir / f"gantt_chart_{self.timestamp}.html"
+        # Look for gantt chart in the analysis directory
+        gantt_chart = self.output_dir / f"gantt_chart_{self.timestamp}.html"
         if gantt_chart.exists():
             reports['gantt_chart'] = gantt_chart
         
         return reports
     
     def copy_assets_to_output(self) -> None:
-        """Copy PNG files and other assets to output directory"""
-        print("📋 Copying assets to output directory...")
+        """Assets are already in the output directory, so this is a no-op"""
+        print("📋 Assets already in analysis directory - no copying needed")
         
-        # Copy PNG files
-        png_files = list(self.reports_dir.glob(f"*{self.timestamp}*.png"))
+        # List existing assets
+        png_files = list(self.output_dir.glob(f"*{self.timestamp}*.png"))
+        json_files = list(self.output_dir.glob(f"*{self.timestamp}*.json"))
+        csv_files = list(self.output_dir.glob(f"*{self.timestamp}*.csv"))
+        
         for png_file in png_files:
-            dest = self.output_dir / png_file.name
-            shutil.copy2(png_file, dest)
-            print(f"   📊 Copied: {png_file.name}")
-        
-        # Copy JSON files
-        json_files = list(self.reports_dir.glob(f"*{self.timestamp}*.json"))
+            print(f"   📊 Found: {png_file.name}")
         for json_file in json_files:
-            dest = self.output_dir / json_file.name
-            shutil.copy2(json_file, dest)
-            print(f"   📄 Copied: {json_file.name}")
-        
-        # Copy CSV files
-        csv_files = list(self.reports_dir.glob(f"*{self.timestamp}*.csv"))
+            print(f"   📄 Found: {json_file.name}")
         for csv_file in csv_files:
-            dest = self.output_dir / csv_file.name
-            shutil.copy2(csv_file, dest)
-            print(f"   📈 Copied: {csv_file.name}")
+            print(f"   📈 Found: {csv_file.name}")
     
     def create_combined_html(self, reports: Dict[str, Optional[Path]]) -> Path:
         """Create a combined HTML document with all reports"""
@@ -732,11 +728,11 @@ class LinguaLintPDFGenerator:
         
         return pdf_file
 
-def generate_comprehensive_pdf(timestamp: str, reports_dir: Path = None) -> Optional[Path]:
+def generate_comprehensive_pdf(timestamp: str, analysis_dir: Path = None) -> Optional[Path]:
     """
     Main function to generate comprehensive PDF from LinguaLint reports
     """
-    generator = LinguaLintPDFGenerator(timestamp, reports_dir)
+    generator = LinguaLintPDFGenerator(timestamp, analysis_dir)
     return generator.generate_comprehensive_pdf()
 
 def main():

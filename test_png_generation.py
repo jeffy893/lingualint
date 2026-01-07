@@ -26,9 +26,27 @@ from pathlib import Path
 from datetime import datetime
 
 # Test with existing responsibility analysis data
-test_file = "reports/extraction_20260101_092551_responsibility_analysis.json"
+# Look for the most recent analysis in lingualint_analysis folder
+analysis_base = Path("lingualint_analysis")
+test_file = None
 
-if Path(test_file).exists():
+if analysis_base.exists():
+    # Find the most recent analysis folder
+    analysis_folders = [d for d in analysis_base.iterdir() if d.is_dir() and d.name.startswith("analysis_")]
+    if analysis_folders:
+        latest_folder = max(analysis_folders, key=lambda x: x.name)
+        # Look for responsibility analysis JSON
+        responsibility_files = list(latest_folder.glob("*_responsibility_analysis.json"))
+        if responsibility_files:
+            test_file = str(responsibility_files[0])
+
+# Fallback to old reports folder if nothing found in new structure
+if not test_file:
+    old_test_file = "reports/extraction_20260101_092551_responsibility_analysis.json"
+    if Path(old_test_file).exists():
+        test_file = old_test_file
+
+if test_file and Path(test_file).exists():
     print(f"🧪 Testing PNG generation with: {test_file}")
     
     try:
@@ -40,7 +58,7 @@ if Path(test_file).exists():
         print("\n✅ PNG Generation Test Results:")
         for file_type, filename in result.items():
             if filename:
-                file_path = Path("reports") / filename
+                file_path = Path(test_file).parent / filename
                 if file_path.exists():
                     size = file_path.stat().st_size
                     print(f"   ✅ {file_type}: {filename} ({size:,} bytes)")
@@ -50,7 +68,8 @@ if Path(test_file).exists():
                 print(f"   ⚠️  {file_type}: None (not generated)")
         
         # Check if PNG files specifically exist
-        png_files = list(Path("reports").glob("*20260101_*.png"))
+        output_dir = Path(test_file).parent
+        png_files = list(output_dir.glob("*responsibility*.png"))
         print(f"\n📈 Total PNG files found: {len(png_files)}")
         for png_file in sorted(png_files):
             print(f"   📊 {png_file.name}")
@@ -61,7 +80,21 @@ if Path(test_file).exists():
         traceback.print_exc()
         
 else:
-    print(f"❌ Test file not found: {test_file}")
-    print("Available files:")
-    for f in Path("reports").glob("*responsibility_analysis.json"):
-        print(f"   📄 {f}")
+    print(f"❌ Test file not found")
+    print("Available files in lingualint_analysis:")
+    if analysis_base.exists():
+        for analysis_folder in analysis_base.iterdir():
+            if analysis_folder.is_dir():
+                print(f"   📁 {analysis_folder.name}/")
+                for f in analysis_folder.glob("*responsibility_analysis.json"):
+                    print(f"      📄 {f.name}")
+    else:
+        print("   No lingualint_analysis folder found")
+    
+    print("Available files in reports folder:")
+    reports_folder = Path("reports")
+    if reports_folder.exists():
+        for f in reports_folder.glob("*responsibility_analysis.json"):
+            print(f"   📄 {f}")
+    else:
+        print("   No reports folder found")

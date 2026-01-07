@@ -253,8 +253,12 @@ class LinguaLintProjectPlanner:
         
         return output_file
 
-def generate_project_plan(json_file, output_dir="./reports"):
+def generate_project_plan(json_file, output_dir=None):
     """Generate complete project plan from LinguaLint analysis"""
+    if output_dir is None:
+        # Default to the same directory as the JSON file
+        output_dir = Path(json_file).parent
+    
     output_path = Path(output_dir)
     output_path.mkdir(exist_ok=True)
     

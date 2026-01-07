@@ -56,11 +56,17 @@ def main():
     
     # Generate output files
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    reports_dir = Path("./reports")
-    reports_dir.mkdir(exist_ok=True)
     
-    json_file = reports_dir / f"extraction_{timestamp}.json"
-    html_file = reports_dir / f"report_{timestamp}.html"
+    # Create lingualint_analysis directory structure
+    analysis_base_dir = Path("./lingualint_analysis")
+    analysis_base_dir.mkdir(exist_ok=True)
+    
+    # Create timestamped analysis folder
+    analysis_dir = analysis_base_dir / f"analysis_{timestamp}"
+    analysis_dir.mkdir(exist_ok=True)
+    
+    json_file = analysis_dir / f"extraction_{timestamp}.json"
+    html_file = analysis_dir / f"report_{timestamp}.html"
     
     # Save JSON
     with open(json_file, 'w', encoding='utf-8') as f:
@@ -96,7 +102,7 @@ def main():
         
         # List all generated files
         if responsibility_files.get('html_report'):
-            responsibility_html = reports_dir / responsibility_files['html_report']
+            responsibility_html = analysis_dir / responsibility_files['html_report']
             print(f"📄 Main Report: {responsibility_html}")
         
         for file_type, filename in responsibility_files.items():
@@ -137,13 +143,13 @@ def main():
     if responsibility_success:
         print(f"🎯 Responsibility analysis: COMPLETED")
         if responsibility_files.get('html_report'):
-            print(f"📊 Responsibility report: {reports_dir / responsibility_files['html_report']}")
+            print(f"📊 Responsibility report: {analysis_dir / responsibility_files['html_report']}")
     else:
         print(f"⚠️  Responsibility analysis: SKIPPED (see details above)")
     
     print(f"\n🌐 Open {html_file} in your browser to view the interactive visualization.")
     if responsibility_success and responsibility_files.get('html_report'):
-        print(f"📊 Open {reports_dir / responsibility_files['html_report']} for responsibility analysis.")
+        print(f"📊 Open {analysis_dir / responsibility_files['html_report']} for responsibility analysis.")
     
     # Generate Comprehensive PDF (FINAL STEP)
     print("\n" + "="*60)
@@ -151,7 +157,7 @@ def main():
     print("="*60)
     
     try:
-        pdf_file = generate_comprehensive_pdf(timestamp, reports_dir)
+        pdf_file = generate_comprehensive_pdf(timestamp, analysis_dir)
         
         if pdf_file:
             print(f"🎉 COMPREHENSIVE PDF GENERATED!")
