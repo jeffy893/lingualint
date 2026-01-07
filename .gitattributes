@@ -1,0 +1,2 @@
+# Exclude a specific folder from language stats
+lingualint_analysis/* linguist-vendored
